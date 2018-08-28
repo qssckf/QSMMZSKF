@@ -73,6 +73,9 @@ public class PlanProduceDetailVO extends SuperVO {
 	private java.lang.String vfree9;
 	private java.lang.String vfree10;
 	private java.lang.String pk_machine;
+	private java.lang.String cprojectid;
+	private java.lang.String cproductorid;
+	private java.lang.String cvendorid;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -132,6 +135,9 @@ public class PlanProduceDetailVO extends SuperVO {
 	public static final String VFREE9 = "vfree9";
 	public static final String VFREE10 = "vfree10";
 	public static final String PK_MACHINE = "pk_machine";
+	public static final String CPROJECTID = "cprojectid";
+	public static final String CPRODUCTORID = "cproductorid";
+	public static final String CVENDORID = "cvendorid";
 			
 	/**
 	 * 属性pk_planbill_b的Getter方法.属性名：主键
@@ -1028,6 +1034,54 @@ public class PlanProduceDetailVO extends SuperVO {
 	 */
 	public void setPk_machine (java.lang.String newPk_machine ) {
 	 	this.pk_machine = newPk_machine;
+	} 	  
+	/**
+	 * 属性cprojectid的Getter方法.属性名：项目
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCprojectid () {
+		return cprojectid;
+	}   
+	/**
+	 * 属性cprojectid的Setter方法.属性名：项目
+	 * 创建日期:
+	 * @param newCprojectid java.lang.String
+	 */
+	public void setCprojectid (java.lang.String newCprojectid ) {
+	 	this.cprojectid = newCprojectid;
+	} 	  
+	/**
+	 * 属性cproductorid的Getter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCproductorid () {
+		return cproductorid;
+	}   
+	/**
+	 * 属性cproductorid的Setter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @param newCproductorid java.lang.String
+	 */
+	public void setCproductorid (java.lang.String newCproductorid ) {
+	 	this.cproductorid = newCproductorid;
+	} 	  
+	/**
+	 * 属性cvendorid的Getter方法.属性名：供应商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCvendorid () {
+		return cvendorid;
+	}   
+	/**
+	 * 属性cvendorid的Setter方法.属性名：供应商
+	 * 创建日期:
+	 * @param newCvendorid java.lang.String
+	 */
+	public void setCvendorid (java.lang.String newCvendorid ) {
+	 	this.cvendorid = newCvendorid;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr

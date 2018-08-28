@@ -31,26 +31,26 @@ public class MmPlanBillVO extends SuperVO {
 	private java.lang.String vbomversion;
 	private java.lang.String plannum;
 	private java.lang.String plannastnum;
-	private java.lang.String vdef1;
-	private java.lang.String vdef2;
-	private java.lang.String vdef3;
-	private java.lang.String vdef4;
-	private java.lang.String vdef5;
-	private java.lang.String vdef6;
-	private java.lang.String vdef7;
-	private java.lang.String vdef8;
-	private java.lang.String vdef9;
-	private java.lang.String vdef10;
-	private java.lang.String vdef11;
-	private java.lang.String vdef12;
-	private java.lang.String vdef13;
-	private java.lang.String vdef14;
-	private java.lang.String vdef15;
-	private java.lang.String vdef16;
-	private java.lang.String vdef17;
-	private java.lang.String vdef18;
-	private java.lang.String vdef19;
-	private java.lang.String vdef20;
+	private java.lang.String vbdef1;
+	private java.lang.String vbdef2;
+	private java.lang.String vbdef3;
+	private java.lang.String vbdef4;
+	private java.lang.String vbdef5;
+	private java.lang.String vbdef6;
+	private java.lang.String vbdef7;
+	private java.lang.String vbdef8;
+	private java.lang.String vbdef9;
+	private java.lang.String vbdef10;
+	private java.lang.String vbdef11;
+	private java.lang.String vbdef12;
+	private java.lang.String vbdef13;
+	private java.lang.String vbdef14;
+	private java.lang.String vbdef15;
+	private java.lang.String vbdef16;
+	private java.lang.String vbdef17;
+	private java.lang.String vbdef18;
+	private java.lang.String vbdef19;
+	private java.lang.String vbdef20;
 	private java.lang.String creator;
 	private nc.vo.pub.lang.UFDateTime creationtime;
 	private java.lang.String modifier;
@@ -69,6 +69,9 @@ public class MmPlanBillVO extends SuperVO {
 	private java.lang.String vfree8;
 	private java.lang.String vfree9;
 	private java.lang.String vfree10;
+	private java.lang.String cprojectid;
+	private java.lang.String cproductorid;
+	private java.lang.String cvendorid;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -86,26 +89,26 @@ public class MmPlanBillVO extends SuperVO {
 	public static final String VBOMVERSION = "vbomversion";
 	public static final String PLANNUM = "plannum";
 	public static final String PLANNASTNUM = "plannastnum";
-	public static final String VDEF1 = "vdef1";
-	public static final String VDEF2 = "vdef2";
-	public static final String VDEF3 = "vdef3";
-	public static final String VDEF4 = "vdef4";
-	public static final String VDEF5 = "vdef5";
-	public static final String VDEF6 = "vdef6";
-	public static final String VDEF7 = "vdef7";
-	public static final String VDEF8 = "vdef8";
-	public static final String VDEF9 = "vdef9";
-	public static final String VDEF10 = "vdef10";
-	public static final String VDEF11 = "vdef11";
-	public static final String VDEF12 = "vdef12";
-	public static final String VDEF13 = "vdef13";
-	public static final String VDEF14 = "vdef14";
-	public static final String VDEF15 = "vdef15";
-	public static final String VDEF16 = "vdef16";
-	public static final String VDEF17 = "vdef17";
-	public static final String VDEF18 = "vdef18";
-	public static final String VDEF19 = "vdef19";
-	public static final String VDEF20 = "vdef20";
+	public static final String VBDEF1 = "vbdef1";
+	public static final String VBDEF2 = "vbdef2";
+	public static final String VBDEF3 = "vbdef3";
+	public static final String VBDEF4 = "vbdef4";
+	public static final String VBDEF5 = "vbdef5";
+	public static final String VBDEF6 = "vbdef6";
+	public static final String VBDEF7 = "vbdef7";
+	public static final String VBDEF8 = "vbdef8";
+	public static final String VBDEF9 = "vbdef9";
+	public static final String VBDEF10 = "vbdef10";
+	public static final String VBDEF11 = "vbdef11";
+	public static final String VBDEF12 = "vbdef12";
+	public static final String VBDEF13 = "vbdef13";
+	public static final String VBDEF14 = "vbdef14";
+	public static final String VBDEF15 = "vbdef15";
+	public static final String VBDEF16 = "vbdef16";
+	public static final String VBDEF17 = "vbdef17";
+	public static final String VBDEF18 = "vbdef18";
+	public static final String VBDEF19 = "vbdef19";
+	public static final String VBDEF20 = "vbdef20";
 	public static final String CREATOR = "creator";
 	public static final String CREATIONTIME = "creationtime";
 	public static final String MODIFIER = "modifier";
@@ -124,6 +127,9 @@ public class MmPlanBillVO extends SuperVO {
 	public static final String VFREE8 = "vfree8";
 	public static final String VFREE9 = "vfree9";
 	public static final String VFREE10 = "vfree10";
+	public static final String CPROJECTID = "cprojectid";
+	public static final String CPRODUCTORID = "cproductorid";
+	public static final String CVENDORID = "cvendorid";
 			
 	/**
 	 * 属性pk_planbill的Getter方法.属性名：主键
@@ -350,324 +356,324 @@ public class MmPlanBillVO extends SuperVO {
 	 	this.plannastnum = newPlannastnum;
 	} 	  
 	/**
-	 * 属性vdef1的Getter方法.属性名：自定义项1
+	 * 属性vbdef1的Getter方法.属性名：自定义项1
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef1 () {
-		return vdef1;
+	public java.lang.String getVbdef1 () {
+		return vbdef1;
 	}   
 	/**
-	 * 属性vdef1的Setter方法.属性名：自定义项1
+	 * 属性vbdef1的Setter方法.属性名：自定义项1
 	 * 创建日期:
-	 * @param newVdef1 java.lang.String
+	 * @param newVbdef1 java.lang.String
 	 */
-	public void setVdef1 (java.lang.String newVdef1 ) {
-	 	this.vdef1 = newVdef1;
+	public void setVbdef1 (java.lang.String newVbdef1 ) {
+	 	this.vbdef1 = newVbdef1;
 	} 	  
 	/**
-	 * 属性vdef2的Getter方法.属性名：自定义项2
+	 * 属性vbdef2的Getter方法.属性名：自定义项2
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef2 () {
-		return vdef2;
+	public java.lang.String getVbdef2 () {
+		return vbdef2;
 	}   
 	/**
-	 * 属性vdef2的Setter方法.属性名：自定义项2
+	 * 属性vbdef2的Setter方法.属性名：自定义项2
 	 * 创建日期:
-	 * @param newVdef2 java.lang.String
+	 * @param newVbdef2 java.lang.String
 	 */
-	public void setVdef2 (java.lang.String newVdef2 ) {
-	 	this.vdef2 = newVdef2;
+	public void setVbdef2 (java.lang.String newVbdef2 ) {
+	 	this.vbdef2 = newVbdef2;
 	} 	  
 	/**
-	 * 属性vdef3的Getter方法.属性名：自定义项3
+	 * 属性vbdef3的Getter方法.属性名：自定义项3
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef3 () {
-		return vdef3;
+	public java.lang.String getVbdef3 () {
+		return vbdef3;
 	}   
 	/**
-	 * 属性vdef3的Setter方法.属性名：自定义项3
+	 * 属性vbdef3的Setter方法.属性名：自定义项3
 	 * 创建日期:
-	 * @param newVdef3 java.lang.String
+	 * @param newVbdef3 java.lang.String
 	 */
-	public void setVdef3 (java.lang.String newVdef3 ) {
-	 	this.vdef3 = newVdef3;
+	public void setVbdef3 (java.lang.String newVbdef3 ) {
+	 	this.vbdef3 = newVbdef3;
 	} 	  
 	/**
-	 * 属性vdef4的Getter方法.属性名：自定义项4
+	 * 属性vbdef4的Getter方法.属性名：自定义项4
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef4 () {
-		return vdef4;
+	public java.lang.String getVbdef4 () {
+		return vbdef4;
 	}   
 	/**
-	 * 属性vdef4的Setter方法.属性名：自定义项4
+	 * 属性vbdef4的Setter方法.属性名：自定义项4
 	 * 创建日期:
-	 * @param newVdef4 java.lang.String
+	 * @param newVbdef4 java.lang.String
 	 */
-	public void setVdef4 (java.lang.String newVdef4 ) {
-	 	this.vdef4 = newVdef4;
+	public void setVbdef4 (java.lang.String newVbdef4 ) {
+	 	this.vbdef4 = newVbdef4;
 	} 	  
 	/**
-	 * 属性vdef5的Getter方法.属性名：自定义项5
+	 * 属性vbdef5的Getter方法.属性名：自定义项5
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef5 () {
-		return vdef5;
+	public java.lang.String getVbdef5 () {
+		return vbdef5;
 	}   
 	/**
-	 * 属性vdef5的Setter方法.属性名：自定义项5
+	 * 属性vbdef5的Setter方法.属性名：自定义项5
 	 * 创建日期:
-	 * @param newVdef5 java.lang.String
+	 * @param newVbdef5 java.lang.String
 	 */
-	public void setVdef5 (java.lang.String newVdef5 ) {
-	 	this.vdef5 = newVdef5;
+	public void setVbdef5 (java.lang.String newVbdef5 ) {
+	 	this.vbdef5 = newVbdef5;
 	} 	  
 	/**
-	 * 属性vdef6的Getter方法.属性名：自定义项6
+	 * 属性vbdef6的Getter方法.属性名：自定义项6
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef6 () {
-		return vdef6;
+	public java.lang.String getVbdef6 () {
+		return vbdef6;
 	}   
 	/**
-	 * 属性vdef6的Setter方法.属性名：自定义项6
+	 * 属性vbdef6的Setter方法.属性名：自定义项6
 	 * 创建日期:
-	 * @param newVdef6 java.lang.String
+	 * @param newVbdef6 java.lang.String
 	 */
-	public void setVdef6 (java.lang.String newVdef6 ) {
-	 	this.vdef6 = newVdef6;
+	public void setVbdef6 (java.lang.String newVbdef6 ) {
+	 	this.vbdef6 = newVbdef6;
 	} 	  
 	/**
-	 * 属性vdef7的Getter方法.属性名：自定义项7
+	 * 属性vbdef7的Getter方法.属性名：自定义项7
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef7 () {
-		return vdef7;
+	public java.lang.String getVbdef7 () {
+		return vbdef7;
 	}   
 	/**
-	 * 属性vdef7的Setter方法.属性名：自定义项7
+	 * 属性vbdef7的Setter方法.属性名：自定义项7
 	 * 创建日期:
-	 * @param newVdef7 java.lang.String
+	 * @param newVbdef7 java.lang.String
 	 */
-	public void setVdef7 (java.lang.String newVdef7 ) {
-	 	this.vdef7 = newVdef7;
+	public void setVbdef7 (java.lang.String newVbdef7 ) {
+	 	this.vbdef7 = newVbdef7;
 	} 	  
 	/**
-	 * 属性vdef8的Getter方法.属性名：自定义项8
+	 * 属性vbdef8的Getter方法.属性名：自定义项8
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef8 () {
-		return vdef8;
+	public java.lang.String getVbdef8 () {
+		return vbdef8;
 	}   
 	/**
-	 * 属性vdef8的Setter方法.属性名：自定义项8
+	 * 属性vbdef8的Setter方法.属性名：自定义项8
 	 * 创建日期:
-	 * @param newVdef8 java.lang.String
+	 * @param newVbdef8 java.lang.String
 	 */
-	public void setVdef8 (java.lang.String newVdef8 ) {
-	 	this.vdef8 = newVdef8;
+	public void setVbdef8 (java.lang.String newVbdef8 ) {
+	 	this.vbdef8 = newVbdef8;
 	} 	  
 	/**
-	 * 属性vdef9的Getter方法.属性名：自定义项9
+	 * 属性vbdef9的Getter方法.属性名：自定义项9
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef9 () {
-		return vdef9;
+	public java.lang.String getVbdef9 () {
+		return vbdef9;
 	}   
 	/**
-	 * 属性vdef9的Setter方法.属性名：自定义项9
+	 * 属性vbdef9的Setter方法.属性名：自定义项9
 	 * 创建日期:
-	 * @param newVdef9 java.lang.String
+	 * @param newVbdef9 java.lang.String
 	 */
-	public void setVdef9 (java.lang.String newVdef9 ) {
-	 	this.vdef9 = newVdef9;
+	public void setVbdef9 (java.lang.String newVbdef9 ) {
+	 	this.vbdef9 = newVbdef9;
 	} 	  
 	/**
-	 * 属性vdef10的Getter方法.属性名：自定义项10
+	 * 属性vbdef10的Getter方法.属性名：自定义项10
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef10 () {
-		return vdef10;
+	public java.lang.String getVbdef10 () {
+		return vbdef10;
 	}   
 	/**
-	 * 属性vdef10的Setter方法.属性名：自定义项10
+	 * 属性vbdef10的Setter方法.属性名：自定义项10
 	 * 创建日期:
-	 * @param newVdef10 java.lang.String
+	 * @param newVbdef10 java.lang.String
 	 */
-	public void setVdef10 (java.lang.String newVdef10 ) {
-	 	this.vdef10 = newVdef10;
+	public void setVbdef10 (java.lang.String newVbdef10 ) {
+	 	this.vbdef10 = newVbdef10;
 	} 	  
 	/**
-	 * 属性vdef11的Getter方法.属性名：自定义项11
+	 * 属性vbdef11的Getter方法.属性名：自定义项11
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef11 () {
-		return vdef11;
+	public java.lang.String getVbdef11 () {
+		return vbdef11;
 	}   
 	/**
-	 * 属性vdef11的Setter方法.属性名：自定义项11
+	 * 属性vbdef11的Setter方法.属性名：自定义项11
 	 * 创建日期:
-	 * @param newVdef11 java.lang.String
+	 * @param newVbdef11 java.lang.String
 	 */
-	public void setVdef11 (java.lang.String newVdef11 ) {
-	 	this.vdef11 = newVdef11;
+	public void setVbdef11 (java.lang.String newVbdef11 ) {
+	 	this.vbdef11 = newVbdef11;
 	} 	  
 	/**
-	 * 属性vdef12的Getter方法.属性名：自定义项12
+	 * 属性vbdef12的Getter方法.属性名：自定义项12
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef12 () {
-		return vdef12;
+	public java.lang.String getVbdef12 () {
+		return vbdef12;
 	}   
 	/**
-	 * 属性vdef12的Setter方法.属性名：自定义项12
+	 * 属性vbdef12的Setter方法.属性名：自定义项12
 	 * 创建日期:
-	 * @param newVdef12 java.lang.String
+	 * @param newVbdef12 java.lang.String
 	 */
-	public void setVdef12 (java.lang.String newVdef12 ) {
-	 	this.vdef12 = newVdef12;
+	public void setVbdef12 (java.lang.String newVbdef12 ) {
+	 	this.vbdef12 = newVbdef12;
 	} 	  
 	/**
-	 * 属性vdef13的Getter方法.属性名：自定义项13
+	 * 属性vbdef13的Getter方法.属性名：自定义项13
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef13 () {
-		return vdef13;
+	public java.lang.String getVbdef13 () {
+		return vbdef13;
 	}   
 	/**
-	 * 属性vdef13的Setter方法.属性名：自定义项13
+	 * 属性vbdef13的Setter方法.属性名：自定义项13
 	 * 创建日期:
-	 * @param newVdef13 java.lang.String
+	 * @param newVbdef13 java.lang.String
 	 */
-	public void setVdef13 (java.lang.String newVdef13 ) {
-	 	this.vdef13 = newVdef13;
+	public void setVbdef13 (java.lang.String newVbdef13 ) {
+	 	this.vbdef13 = newVbdef13;
 	} 	  
 	/**
-	 * 属性vdef14的Getter方法.属性名：自定义项14
+	 * 属性vbdef14的Getter方法.属性名：自定义项14
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef14 () {
-		return vdef14;
+	public java.lang.String getVbdef14 () {
+		return vbdef14;
 	}   
 	/**
-	 * 属性vdef14的Setter方法.属性名：自定义项14
+	 * 属性vbdef14的Setter方法.属性名：自定义项14
 	 * 创建日期:
-	 * @param newVdef14 java.lang.String
+	 * @param newVbdef14 java.lang.String
 	 */
-	public void setVdef14 (java.lang.String newVdef14 ) {
-	 	this.vdef14 = newVdef14;
+	public void setVbdef14 (java.lang.String newVbdef14 ) {
+	 	this.vbdef14 = newVbdef14;
 	} 	  
 	/**
-	 * 属性vdef15的Getter方法.属性名：自定义项15
+	 * 属性vbdef15的Getter方法.属性名：自定义项15
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef15 () {
-		return vdef15;
+	public java.lang.String getVbdef15 () {
+		return vbdef15;
 	}   
 	/**
-	 * 属性vdef15的Setter方法.属性名：自定义项15
+	 * 属性vbdef15的Setter方法.属性名：自定义项15
 	 * 创建日期:
-	 * @param newVdef15 java.lang.String
+	 * @param newVbdef15 java.lang.String
 	 */
-	public void setVdef15 (java.lang.String newVdef15 ) {
-	 	this.vdef15 = newVdef15;
+	public void setVbdef15 (java.lang.String newVbdef15 ) {
+	 	this.vbdef15 = newVbdef15;
 	} 	  
 	/**
-	 * 属性vdef16的Getter方法.属性名：自定义项16
+	 * 属性vbdef16的Getter方法.属性名：自定义项16
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef16 () {
-		return vdef16;
+	public java.lang.String getVbdef16 () {
+		return vbdef16;
 	}   
 	/**
-	 * 属性vdef16的Setter方法.属性名：自定义项16
+	 * 属性vbdef16的Setter方法.属性名：自定义项16
 	 * 创建日期:
-	 * @param newVdef16 java.lang.String
+	 * @param newVbdef16 java.lang.String
 	 */
-	public void setVdef16 (java.lang.String newVdef16 ) {
-	 	this.vdef16 = newVdef16;
+	public void setVbdef16 (java.lang.String newVbdef16 ) {
+	 	this.vbdef16 = newVbdef16;
 	} 	  
 	/**
-	 * 属性vdef17的Getter方法.属性名：自定义项17
+	 * 属性vbdef17的Getter方法.属性名：自定义项17
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef17 () {
-		return vdef17;
+	public java.lang.String getVbdef17 () {
+		return vbdef17;
 	}   
 	/**
-	 * 属性vdef17的Setter方法.属性名：自定义项17
+	 * 属性vbdef17的Setter方法.属性名：自定义项17
 	 * 创建日期:
-	 * @param newVdef17 java.lang.String
+	 * @param newVbdef17 java.lang.String
 	 */
-	public void setVdef17 (java.lang.String newVdef17 ) {
-	 	this.vdef17 = newVdef17;
+	public void setVbdef17 (java.lang.String newVbdef17 ) {
+	 	this.vbdef17 = newVbdef17;
 	} 	  
 	/**
-	 * 属性vdef18的Getter方法.属性名：自定义项18
+	 * 属性vbdef18的Getter方法.属性名：自定义项18
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef18 () {
-		return vdef18;
+	public java.lang.String getVbdef18 () {
+		return vbdef18;
 	}   
 	/**
-	 * 属性vdef18的Setter方法.属性名：自定义项18
+	 * 属性vbdef18的Setter方法.属性名：自定义项18
 	 * 创建日期:
-	 * @param newVdef18 java.lang.String
+	 * @param newVbdef18 java.lang.String
 	 */
-	public void setVdef18 (java.lang.String newVdef18 ) {
-	 	this.vdef18 = newVdef18;
+	public void setVbdef18 (java.lang.String newVbdef18 ) {
+	 	this.vbdef18 = newVbdef18;
 	} 	  
 	/**
-	 * 属性vdef19的Getter方法.属性名：自定义项19
+	 * 属性vbdef19的Getter方法.属性名：自定义项19
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef19 () {
-		return vdef19;
+	public java.lang.String getVbdef19 () {
+		return vbdef19;
 	}   
 	/**
-	 * 属性vdef19的Setter方法.属性名：自定义项19
+	 * 属性vbdef19的Setter方法.属性名：自定义项19
 	 * 创建日期:
-	 * @param newVdef19 java.lang.String
+	 * @param newVbdef19 java.lang.String
 	 */
-	public void setVdef19 (java.lang.String newVdef19 ) {
-	 	this.vdef19 = newVdef19;
+	public void setVbdef19 (java.lang.String newVbdef19 ) {
+	 	this.vbdef19 = newVbdef19;
 	} 	  
 	/**
-	 * 属性vdef20的Getter方法.属性名：自定义项20
+	 * 属性vbdef20的Getter方法.属性名：自定义项20
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getVdef20 () {
-		return vdef20;
+	public java.lang.String getVbdef20 () {
+		return vbdef20;
 	}   
 	/**
-	 * 属性vdef20的Setter方法.属性名：自定义项20
+	 * 属性vbdef20的Setter方法.属性名：自定义项20
 	 * 创建日期:
-	 * @param newVdef20 java.lang.String
+	 * @param newVbdef20 java.lang.String
 	 */
-	public void setVdef20 (java.lang.String newVdef20 ) {
-	 	this.vdef20 = newVdef20;
+	public void setVbdef20 (java.lang.String newVbdef20 ) {
+	 	this.vbdef20 = newVbdef20;
 	} 	  
 	/**
 	 * 属性creator的Getter方法.属性名：创建人
@@ -956,6 +962,54 @@ public class MmPlanBillVO extends SuperVO {
 	 */
 	public void setVfree10 (java.lang.String newVfree10 ) {
 	 	this.vfree10 = newVfree10;
+	} 	  
+	/**
+	 * 属性cprojectid的Getter方法.属性名：项目
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCprojectid () {
+		return cprojectid;
+	}   
+	/**
+	 * 属性cprojectid的Setter方法.属性名：项目
+	 * 创建日期:
+	 * @param newCprojectid java.lang.String
+	 */
+	public void setCprojectid (java.lang.String newCprojectid ) {
+	 	this.cprojectid = newCprojectid;
+	} 	  
+	/**
+	 * 属性cproductorid的Getter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCproductorid () {
+		return cproductorid;
+	}   
+	/**
+	 * 属性cproductorid的Setter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @param newCproductorid java.lang.String
+	 */
+	public void setCproductorid (java.lang.String newCproductorid ) {
+	 	this.cproductorid = newCproductorid;
+	} 	  
+	/**
+	 * 属性cvendorid的Getter方法.属性名：供应商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCvendorid () {
+		return cvendorid;
+	}   
+	/**
+	 * 属性cvendorid的Setter方法.属性名：供应商
+	 * 创建日期:
+	 * @param newCvendorid java.lang.String
+	 */
+	public void setCvendorid (java.lang.String newCvendorid ) {
+	 	this.cvendorid = newCvendorid;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr
