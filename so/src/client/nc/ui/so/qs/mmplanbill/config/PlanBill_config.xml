@@ -106,7 +106,7 @@
 			<bean name="userdefAndMarAsstListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
 				<property name="billListDataPrepares">
 					<list>
-						<ref bean="userdefitemlistPreparatorByPreOrder" />
+						<ref bean="userdefitemlistPreparator" />
 						<ref bean="marAsstPreparator" />
 					</list>
 				</property>
@@ -124,7 +124,7 @@
 				<property name="billListDataPrepares">
 					<list>
 						<ref bean="userdefitemlistPreparatorByPlanDetail" />
-						<ref bean="marAsstPreparator1" />
+						<ref bean="marAsstPreparator" />
 					</list>
 				</property>
 			</bean>
@@ -153,12 +153,12 @@
 	</bean>
 	
 	
-	<bean name="userdefitemlistPreparatorByPreOrder" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
+	<bean name="userdefitemlistPreparator" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
 		<property name="container" ref="userdefitemContainer" />
 		<property name="params">
 			<list>
 				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
-					<property name="mdfullname" value="so.preorder_b" />
+					<property name="mdfullname" value="so.MmPlanBill" />
 					<property name="pos" value="0" />
 					<property name="prefix" value="vbdef" />
 				</bean>
@@ -185,30 +185,19 @@
 		<property name="model" ref="manageAppModel" />
 		<property name="container" ref="userdefitemContainer" />
 		<property name="prefix" value="vfree" />
-		<property name="materialField" value="cmaterialid" />
-		<!-- <property name="storeStateField" value="cstateid" /> -->
-		<!-- <property name="projectField" value="cprojectid" /> -->
-		<!-- <property name="supplierField" value="cvendorid" /> -->
-		<!-- <property name="productorField" value="cproductorid" /> -->
+		<property name="materialField" value="pk_material" />
+		<property name="projectField" value="cprojectid" /> 
+		<property name="supplierField" value="cvendorid" />
+		<property name="productorField" value="cproductorid" />
 	</bean>
 	
-	<bean id="marAsstPreparator1" class="nc.ui.pubapp.uif2app.view.material.assistant.MarAsstPreparator">
-		<property name="model" ref="manageAppModel" />
-		<property name="container" ref="userdefitemContainer" />
-		<property name="prefix" value="vfree" />
-		<property name="materialField" value="pk_material" />
-		<!-- <property name="storeStateField" value="cstateid" /> -->
-		<!-- <property name="projectField" value="cprojectid" /> -->
-		<!-- <property name="supplierField" value="cvendorid" /> -->
-		<!-- <property name="productorField" value="cproductorid" /> -->
-	</bean>
 	
 	<bean id="userdefitemContainer" class="nc.ui.uif2.userdefitem.UserDefItemContainer">
 		<property name="context" ref="context" />
 		<property name="params">
 			<list>
 				<bean class="nc.ui.uif2.userdefitem.QueryParam">
-					<property name="mdfullname" value="so.preorder_b" />
+					<property name="mdfullname" value="so.MmPlanBill" />
 				</bean>
 				<bean class="nc.ui.uif2.userdefitem.QueryParam">
 					<property name="mdfullname" value="so.PlanProduceDetailVO" />

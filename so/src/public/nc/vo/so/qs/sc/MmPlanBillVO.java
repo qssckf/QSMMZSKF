@@ -56,7 +56,7 @@ public class MmPlanBillVO extends SuperVO {
 	private java.lang.String modifier;
 	private nc.vo.pub.lang.UFDateTime modifiedtime;
 	private java.lang.String cunit;
-	private java.lang.String munit;
+	private java.lang.String qunit;
 	private nc.vo.pub.lang.UFBoolean sfexand;
 	private nc.vo.pub.lang.UFBoolean sfclose;
 	private java.lang.String vfree1;
@@ -72,6 +72,21 @@ public class MmPlanBillVO extends SuperVO {
 	private java.lang.String cprojectid;
 	private java.lang.String cproductorid;
 	private java.lang.String cvendorid;
+	private java.lang.String vscrcode;
+	private java.lang.String endcustomer;
+	private nc.vo.pub.lang.UFDate dbilldate;
+	private nc.vo.pub.lang.UFDateTime plandate;
+	private nc.vo.pub.lang.UFDate deliverydate;
+	private nc.vo.pub.lang.UFDouble silkwide;
+	private java.lang.String tagline;
+	private java.lang.String cutcloth;
+	private nc.vo.pub.lang.UFDouble latitudedensity;
+	private nc.vo.pub.lang.UFDouble width;
+	private nc.vo.pub.lang.UFDouble tensiondd;
+	private nc.vo.pub.lang.UFDouble length;
+	private java.lang.String otherproduction;
+	private nc.vo.pub.lang.UFDouble elongation;
+	private nc.vo.pub.lang.UFBoolean spacer;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -114,7 +129,7 @@ public class MmPlanBillVO extends SuperVO {
 	public static final String MODIFIER = "modifier";
 	public static final String MODIFIEDTIME = "modifiedtime";
 	public static final String CUNIT = "cunit";
-	public static final String MUNIT = "munit";
+	public static final String QUNIT = "qunit";
 	public static final String SFEXAND = "sfexand";
 	public static final String SFCLOSE = "sfclose";
 	public static final String VFREE1 = "vfree1";
@@ -130,6 +145,21 @@ public class MmPlanBillVO extends SuperVO {
 	public static final String CPROJECTID = "cprojectid";
 	public static final String CPRODUCTORID = "cproductorid";
 	public static final String CVENDORID = "cvendorid";
+	public static final String VSCRCODE = "vscrcode";
+	public static final String ENDCUSTOMER = "endcustomer";
+	public static final String DBILLDATE = "dbilldate";
+	public static final String PLANDATE = "plandate";
+	public static final String DELIVERYDATE = "deliverydate";
+	public static final String SILKWIDE = "silkwide";
+	public static final String TAGLINE = "tagline";
+	public static final String CUTCLOTH = "cutcloth";
+	public static final String LATITUDEDENSITY = "latitudedensity";
+	public static final String WIDTH = "width";
+	public static final String TENSIONDD = "tensiondd";
+	public static final String LENGTH = "length";
+	public static final String OTHERPRODUCTION = "otherproduction";
+	public static final String ELONGATION = "elongation";
+	public static final String SPACER = "spacer";
 			
 	/**
 	 * 属性pk_planbill的Getter方法.属性名：主键
@@ -756,20 +786,20 @@ public class MmPlanBillVO extends SuperVO {
 	 	this.cunit = newCunit;
 	} 	  
 	/**
-	 * 属性munit的Getter方法.属性名：生产单位
+	 * 属性qunit的Getter方法.属性名：辅单位
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getMunit () {
-		return munit;
+	public java.lang.String getQunit () {
+		return qunit;
 	}   
 	/**
-	 * 属性munit的Setter方法.属性名：生产单位
+	 * 属性qunit的Setter方法.属性名：辅单位
 	 * 创建日期:
-	 * @param newMunit java.lang.String
+	 * @param newQunit java.lang.String
 	 */
-	public void setMunit (java.lang.String newMunit ) {
-	 	this.munit = newMunit;
+	public void setQunit (java.lang.String newQunit ) {
+	 	this.qunit = newQunit;
 	} 	  
 	/**
 	 * 属性sfexand的Getter方法.属性名：展开标志
@@ -1010,6 +1040,246 @@ public class MmPlanBillVO extends SuperVO {
 	 */
 	public void setCvendorid (java.lang.String newCvendorid ) {
 	 	this.cvendorid = newCvendorid;
+	} 	  
+	/**
+	 * 属性vscrcode的Getter方法.属性名：来源单据号
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getVscrcode () {
+		return vscrcode;
+	}   
+	/**
+	 * 属性vscrcode的Setter方法.属性名：来源单据号
+	 * 创建日期:
+	 * @param newVscrcode java.lang.String
+	 */
+	public void setVscrcode (java.lang.String newVscrcode ) {
+	 	this.vscrcode = newVscrcode;
+	} 	  
+	/**
+	 * 属性endcustomer的Getter方法.属性名：终端客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getEndcustomer () {
+		return endcustomer;
+	}   
+	/**
+	 * 属性endcustomer的Setter方法.属性名：终端客户
+	 * 创建日期:
+	 * @param newEndcustomer java.lang.String
+	 */
+	public void setEndcustomer (java.lang.String newEndcustomer ) {
+	 	this.endcustomer = newEndcustomer;
+	} 	  
+	/**
+	 * 属性dbilldate的Getter方法.属性名：预订单日期
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDate
+	 */
+	public nc.vo.pub.lang.UFDate getDbilldate () {
+		return dbilldate;
+	}   
+	/**
+	 * 属性dbilldate的Setter方法.属性名：预订单日期
+	 * 创建日期:
+	 * @param newDbilldate nc.vo.pub.lang.UFDate
+	 */
+	public void setDbilldate (nc.vo.pub.lang.UFDate newDbilldate ) {
+	 	this.dbilldate = newDbilldate;
+	} 	  
+	/**
+	 * 属性plandate的Getter方法.属性名：调度日期
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDateTime
+	 */
+	public nc.vo.pub.lang.UFDateTime getPlandate () {
+		return plandate;
+	}   
+	/**
+	 * 属性plandate的Setter方法.属性名：调度日期
+	 * 创建日期:
+	 * @param newPlandate nc.vo.pub.lang.UFDateTime
+	 */
+	public void setPlandate (nc.vo.pub.lang.UFDateTime newPlandate ) {
+	 	this.plandate = newPlandate;
+	} 	  
+	/**
+	 * 属性deliverydate的Getter方法.属性名：交货日期
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDate
+	 */
+	public nc.vo.pub.lang.UFDate getDeliverydate () {
+		return deliverydate;
+	}   
+	/**
+	 * 属性deliverydate的Setter方法.属性名：交货日期
+	 * 创建日期:
+	 * @param newDeliverydate nc.vo.pub.lang.UFDate
+	 */
+	public void setDeliverydate (nc.vo.pub.lang.UFDate newDeliverydate ) {
+	 	this.deliverydate = newDeliverydate;
+	} 	  
+	/**
+	 * 属性silkwide的Getter方法.属性名：丝宽
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getSilkwide () {
+		return silkwide;
+	}   
+	/**
+	 * 属性silkwide的Setter方法.属性名：丝宽
+	 * 创建日期:
+	 * @param newSilkwide nc.vo.pub.lang.UFDouble
+	 */
+	public void setSilkwide (nc.vo.pub.lang.UFDouble newSilkwide ) {
+	 	this.silkwide = newSilkwide;
+	} 	  
+	/**
+	 * 属性tagline的Getter方法.属性名：标识线
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getTagline () {
+		return tagline;
+	}   
+	/**
+	 * 属性tagline的Setter方法.属性名：标识线
+	 * 创建日期:
+	 * @param newTagline java.lang.String
+	 */
+	public void setTagline (java.lang.String newTagline ) {
+	 	this.tagline = newTagline;
+	} 	  
+	/**
+	 * 属性cutcloth的Getter方法.属性名：剖布类型
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCutcloth () {
+		return cutcloth;
+	}   
+	/**
+	 * 属性cutcloth的Setter方法.属性名：剖布类型
+	 * 创建日期:
+	 * @param newCutcloth java.lang.String
+	 */
+	public void setCutcloth (java.lang.String newCutcloth ) {
+	 	this.cutcloth = newCutcloth;
+	} 	  
+	/**
+	 * 属性latitudedensity的Getter方法.属性名：维密
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLatitudedensity () {
+		return latitudedensity;
+	}   
+	/**
+	 * 属性latitudedensity的Setter方法.属性名：维密
+	 * 创建日期:
+	 * @param newLatitudedensity nc.vo.pub.lang.UFDouble
+	 */
+	public void setLatitudedensity (nc.vo.pub.lang.UFDouble newLatitudedensity ) {
+	 	this.latitudedensity = newLatitudedensity;
+	} 	  
+	/**
+	 * 属性width的Getter方法.属性名：宽度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getWidth () {
+		return width;
+	}   
+	/**
+	 * 属性width的Setter方法.属性名：宽度
+	 * 创建日期:
+	 * @param newWidth nc.vo.pub.lang.UFDouble
+	 */
+	public void setWidth (nc.vo.pub.lang.UFDouble newWidth ) {
+	 	this.width = newWidth;
+	} 	  
+	/**
+	 * 属性tensiondd的Getter方法.属性名：拉力
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getTensiondd () {
+		return tensiondd;
+	}   
+	/**
+	 * 属性tensiondd的Setter方法.属性名：拉力
+	 * 创建日期:
+	 * @param newTensiondd nc.vo.pub.lang.UFDouble
+	 */
+	public void setTensiondd (nc.vo.pub.lang.UFDouble newTensiondd ) {
+	 	this.tensiondd = newTensiondd;
+	} 	  
+	/**
+	 * 属性length的Getter方法.属性名：长度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLength () {
+		return length;
+	}   
+	/**
+	 * 属性length的Setter方法.属性名：长度
+	 * 创建日期:
+	 * @param newLength nc.vo.pub.lang.UFDouble
+	 */
+	public void setLength (nc.vo.pub.lang.UFDouble newLength ) {
+	 	this.length = newLength;
+	} 	  
+	/**
+	 * 属性otherproduction的Getter方法.属性名：其他生产要求
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getOtherproduction () {
+		return otherproduction;
+	}   
+	/**
+	 * 属性otherproduction的Setter方法.属性名：其他生产要求
+	 * 创建日期:
+	 * @param newOtherproduction java.lang.String
+	 */
+	public void setOtherproduction (java.lang.String newOtherproduction ) {
+	 	this.otherproduction = newOtherproduction;
+	} 	  
+	/**
+	 * 属性elongation的Getter方法.属性名：伸长率
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getElongation () {
+		return elongation;
+	}   
+	/**
+	 * 属性elongation的Setter方法.属性名：伸长率
+	 * 创建日期:
+	 * @param newElongation nc.vo.pub.lang.UFDouble
+	 */
+	public void setElongation (nc.vo.pub.lang.UFDouble newElongation ) {
+	 	this.elongation = newElongation;
+	} 	  
+	/**
+	 * 属性spacer的Getter方法.属性名：垫片
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFBoolean
+	 */
+	public nc.vo.pub.lang.UFBoolean getSpacer () {
+		return spacer;
+	}   
+	/**
+	 * 属性spacer的Setter方法.属性名：垫片
+	 * 创建日期:
+	 * @param newSpacer nc.vo.pub.lang.UFBoolean
+	 */
+	public void setSpacer (nc.vo.pub.lang.UFBoolean newSpacer ) {
+	 	this.spacer = newSpacer;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr

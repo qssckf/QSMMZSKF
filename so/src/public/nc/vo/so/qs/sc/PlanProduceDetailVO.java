@@ -76,6 +76,10 @@ public class PlanProduceDetailVO extends SuperVO {
 	private java.lang.String cprojectid;
 	private java.lang.String cproductorid;
 	private java.lang.String cvendorid;
+	private java.lang.String tagline;
+	private nc.vo.pub.lang.UFDouble latitudedensity;
+	private nc.vo.pub.lang.UFDouble width;
+	private nc.vo.pub.lang.UFDouble length;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -138,6 +142,10 @@ public class PlanProduceDetailVO extends SuperVO {
 	public static final String CPROJECTID = "cprojectid";
 	public static final String CPRODUCTORID = "cproductorid";
 	public static final String CVENDORID = "cvendorid";
+	public static final String TAGLINE = "tagline";
+	public static final String LATITUDEDENSITY = "latitudedensity";
+	public static final String WIDTH = "width";
+	public static final String LENGTH = "length";
 			
 	/**
 	 * 属性pk_planbill_b的Getter方法.属性名：主键
@@ -1082,6 +1090,70 @@ public class PlanProduceDetailVO extends SuperVO {
 	 */
 	public void setCvendorid (java.lang.String newCvendorid ) {
 	 	this.cvendorid = newCvendorid;
+	} 	  
+	/**
+	 * 属性tagline的Getter方法.属性名：标识线
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getTagline () {
+		return tagline;
+	}   
+	/**
+	 * 属性tagline的Setter方法.属性名：标识线
+	 * 创建日期:
+	 * @param newTagline java.lang.String
+	 */
+	public void setTagline (java.lang.String newTagline ) {
+	 	this.tagline = newTagline;
+	} 	  
+	/**
+	 * 属性latitudedensity的Getter方法.属性名：维密
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLatitudedensity () {
+		return latitudedensity;
+	}   
+	/**
+	 * 属性latitudedensity的Setter方法.属性名：维密
+	 * 创建日期:
+	 * @param newLatitudedensity nc.vo.pub.lang.UFDouble
+	 */
+	public void setLatitudedensity (nc.vo.pub.lang.UFDouble newLatitudedensity ) {
+	 	this.latitudedensity = newLatitudedensity;
+	} 	  
+	/**
+	 * 属性width的Getter方法.属性名：宽度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getWidth () {
+		return width;
+	}   
+	/**
+	 * 属性width的Setter方法.属性名：宽度
+	 * 创建日期:
+	 * @param newWidth nc.vo.pub.lang.UFDouble
+	 */
+	public void setWidth (nc.vo.pub.lang.UFDouble newWidth ) {
+	 	this.width = newWidth;
+	} 	  
+	/**
+	 * 属性length的Getter方法.属性名：长度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLength () {
+		return length;
+	}   
+	/**
+	 * 属性length的Setter方法.属性名：长度
+	 * 创建日期:
+	 * @param newLength nc.vo.pub.lang.UFDouble
+	 */
+	public void setLength (nc.vo.pub.lang.UFDouble newLength ) {
+	 	this.length = newLength;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr
