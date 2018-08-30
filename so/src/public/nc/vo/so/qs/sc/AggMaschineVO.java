@@ -9,8 +9,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import nc.vo.pd.pd0404.entity.WkProdinvVO;
+import nc.vo.pd.pd0404.entity.WkRepltimeVO;
+import nc.vo.pd.pd0404.entity.WkSubstVO;
+import nc.vo.pd.pd0404.entity.WkVO;
+import nc.vo.pd.pd0404.entity.WkWipVO;
 import nc.vo.pub.CircularlyAccessibleValueObject;
+import nc.vo.pub.IVOMeta;
 import nc.vo.pub.SuperVO;
+import nc.vo.pubapp.pattern.model.entity.bill.AbstractBill;
+import nc.vo.pubapp.pattern.model.meta.entity.bill.AbstractBillMeta;
+import nc.vo.pubapp.pattern.model.meta.entity.bill.BillMetaFactory;
+import nc.vo.pubapp.pattern.model.meta.entity.bill.IBillMeta;
+import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
 import nc.vo.trade.pub.IExAggVO;
 import nc.vo.trade.pub.HYBillVO;
 
@@ -25,7 +36,7 @@ import nc.vo.trade.pub.HYBillVO;
  */
 @SuppressWarnings("serial")
 @nc.vo.annotation.AggVoInfo(parentVO = "nc.vo.so.qs.sc.MaschineVO")
-public class AggMaschineVO extends HYBillVO implements IExAggVO{
+public class AggMaschineVO extends AbstractBill implements IExAggVO{
     
 	
 	//用于装载多子表数据的HashMap
@@ -124,37 +135,38 @@ public class AggMaschineVO extends HYBillVO implements IExAggVO{
 		return getTableCodes()[0];
 	}
 	
-	/**
-	 * 
-	 * 创建日期：
-	 * @param String tableCode
-	 * @param String parentId
-	 * @return SuperVO[]
-	 */
-	public SuperVO[] getChildVOsByParentId(String tableCode,String parentId){
-		
-		return null;
+
+	@Override
+	public CircularlyAccessibleValueObject[] getChildrenVO() {
+		// TODO 自动生成的方法存根
+		ArrayList<CircularlyAccessibleValueObject> al = new ArrayList();
+		for (int i = 0; i < getTableCodes().length; i++) {
+		  CircularlyAccessibleValueObject[] cvos = getTableVO(getTableCodes()[i]);
+		  if (cvos != null) {
+		    al.addAll(Arrays.asList(cvos));
+		  }
+		}
+		return (CircularlyAccessibleValueObject[])al.toArray(new SuperVO[0]);
+	}
+
+
+	@Override
+	public IBillMeta getMetaData() {
+		// TODO 自动生成的方法存根
+		IBillMeta billMeta =BillMetaFactory.getInstance().getBillMeta(AggMaschineMeta.class);
+	  	return billMeta;
 	}
 	
 	
-	/**
-	 * 
-	 * 创建日期：
-	 * @return HashMap
-	 */
-	public HashMap getHmEditingVOs() throws Exception{
-		
-		return null;
-	}
 	
-	/**
-	 * 
-	 * 创建日期:
-	 * @param SuperVO item
-	 * @return String
-	 */
-	public String getParentId(SuperVO item){
-		
-		return null;
-	}
+	public class AggMaschineMeta extends AbstractBillMeta
+	{
+	   public AggMaschineMeta()
+	   {
+	     setParent(MaschineVO.class);
+	     addChildren(MachineCustomer.class);
+	     addChildren(MachineDept.class);
+	     addChildren(MachineMater_Mater.class);
+	   }
+	 }
 }

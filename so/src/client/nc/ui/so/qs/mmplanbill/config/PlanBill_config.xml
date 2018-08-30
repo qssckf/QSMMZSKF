@@ -8,14 +8,53 @@
 	
 	<bean id="boAdatorFactory" class="nc.vo.bd.meta.BDObjectAdpaterFactory" />
 	
+	<bean id="QueryTemplateContainer" class="nc.ui.uif2.editor.QueryTemplateContainer">
+    	<property name="context" ref="context"></property>
+    </bean>
+		
 	<bean id="templateContainer" class="nc.ui.uif2.editor.TemplateContainer" init-method="load">
 		<property name="context" ref="context" />
 		<property name="nodeKeies">
 			<list>
-				<value>schedulePO</value>
+				<value>planlist</value>
+				<value>plandetaillist</value>
+				<value>plandetailmmlist</value>
+				<value>machinelist</value>
+				<value>machinemmorder</value>
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="userdefitemContainer" class="nc.ui.uif2.userdefitem.UserDefItemContainer">
+		<property name="context" ref="context" />
+		<property name="params">
+			<list>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam">
+					<property name="mdfullname" value="so.MmPlanBill" />
+				</bean>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam">
+					<property name="mdfullname" value="so.PlanProduceDetailVO" />
+				</bean>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam">
+					<property name="mdfullname" value="so.rd_pd" />
+				</bean>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam">
+					<property name="rulecode" value="materialassistant" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="remoteCallCombinatorCaller" class="nc.ui.uif2.editor.UIF2RemoteCallCombinatorCaller">
+	 	<property name="remoteCallers">
+	 		<list>
+	 			<ref bean="QueryTemplateContainer" />
+	 			<ref bean="templateContainer" />
+	 			<ref bean="userdefitemContainer"/>
+	 		</list>
+	 	</property>
+	 </bean>
 	
 	<bean id="manageAppModel" class="nc.ui.so.qs.mmplanbill.model.ManageAppModel">
 		<property name="businessObjectAdapterFactory" ref="boAdatorFactory" />
@@ -37,7 +76,6 @@
 						</property>
 					</bean>
 				</property>
-				
 				<property name="down">
 					<bean class="nc.ui.uif2.tangramlayout.node.VSNode">
 						<property name="up">
@@ -48,7 +86,18 @@
 						</property>
 					</bean>
 				</property>
+				<property name="dividerLocation" value="30f" />
 			</bean>
+		</property>
+		<property name="actions">
+			<list>
+				<ref bean="QueryActionGroup" />
+			</list>
+		</property>
+		<property name="editActions">
+			<list>
+				<ref bean="batchSaveAction" />
+			</list>
 		</property>
 	</bean>
 	
@@ -61,7 +110,7 @@
 		<property name="down">
 			<ref bean="PlanDetail" />
 		</property>
-		<property name="dividerLocation" value="40f" />
+		<property name="dividerLocation" value="0.55f" />
 	</bean>
 	
 	<bean id="PlanDetail" class="nc.ui.uif2.tangramlayout.node.HSNode">
@@ -102,6 +151,8 @@
 		<property name="multiSelectionEnable" value="false" />
 		<property name="templateContainer" ref="templateContainer" />
 		<property name="nodekey" value="planlist" />
+		<property name="north" ref="listInfoPnl"></property>
+		<property name="south" ref="paginationBar" />
 		<property name="userdefitemListPreparator">
 			<bean name="userdefAndMarAsstListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
 				<property name="billListDataPrepares">
@@ -114,10 +165,22 @@
 		</property>
 	</bean>
 	
+	<bean id="listInfoPnl" class="nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel">
+		<property name="model" ref="manageAppModel" />
+	</bean>
+	
+	<bean id="paginationBar" class="nc.ui.uif2.components.pagination.PaginationBar" init-method="registeCallbak">
+		<property name="paginationModel" ref="paginationModel" />
+		<property name="context" ref="context" />
+	</bean>
+	
+	<bean id="paginationModel" class="nc.ui.uif2.components.pagination.PaginationModel" init-method="init" />
+	
 	<bean id="PlanDetailListView" class="nc.ui.so.qs.mmplanbill.view.PlanDetailListView" init-method="initUI">
 		<property name="model" ref="manageAppModel" />
 		<property name="multiSelectionEnable" value="false" />
 		<property name="templateContainer" ref="templateContainer" />
+		<property name="north" ref="listInfoPnl1"></property>
 		<property name="nodekey" value="plandetaillist" />
 		<property name="userdefitemListPreparator">
 			<bean name="userdefAndMarAsstListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
@@ -131,12 +194,33 @@
 		</property>
 	</bean>
 	
+	<bean id="listInfoPnl1" class="nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel">
+		<property name="model" ref="manageAppModel" />
+	</bean>
+	
 	<bean id="PlanDetailMmListView" class="nc.ui.so.qs.mmplanbill.view.PlanDetailMmListView" init-method="initUI">
 		<property name="model" ref="manageAppModel" />
 		<property name="multiSelectionEnable" value="false" />
 		<property name="templateContainer" ref="templateContainer" />
+		<property name="north" ref="listInfoPnl2"></property>
 		<property name="nodekey" value="plandetailmmlist" />
+		<property name="userdefitemListPreparator">
+			<bean name="userdefAndMarAsstListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
+				<property name="billListDataPrepares">
+					<list>
+						<ref bean="userdefitemlistPreparatorByRdpd" />
+						<ref bean="marAsstPreparator" />
+					</list>
+				</property>
+			</bean>
+		</property>
+		
 	</bean>
+	
+	<bean id="listInfoPnl2" class="nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel">
+		<property name="model" ref="manageAppModel" />
+	</bean>
+	
 	
 	<bean id="MachineListView" class="nc.ui.so.qs.mmplanbill.view.MachineListView" init-method="initUI">
 		<property name="model" ref="manageAppModel" />
@@ -151,15 +235,14 @@
 		<property name="templateContainer" ref="templateContainer" />
 		<property name="nodekey" value="machinemmorder" />
 	</bean>
-	
-	
+
 	<bean name="userdefitemlistPreparator" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
 		<property name="container" ref="userdefitemContainer" />
 		<property name="params">
 			<list>
 				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
 					<property name="mdfullname" value="so.MmPlanBill" />
-					<property name="pos" value="0" />
+					<property name="pos" value="1" />
 					<property name="prefix" value="vbdef" />
 				</bean>
 			</list>
@@ -172,14 +255,25 @@
 			<list>
 				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
 					<property name="mdfullname" value="so.PlanProduceDetailVO" />
-					<property name="pos" value="0" />
+					<property name="pos" value="1" />
 					<property name="prefix" value="vbdef" />
 				</bean>
 			</list>
 		</property>
 	</bean>
 	
-	
+	<bean name="userdefitemlistPreparatorByRdpd" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
+		<property name="container" ref="userdefitemContainer" />
+		<property name="params">
+			<list>
+				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
+					<property name="mdfullname" value="so.rd_pd" />
+					<property name="pos" value="1" />
+					<property name="prefix" value="def" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	
 	<bean id="marAsstPreparator" class="nc.ui.pubapp.uif2app.view.material.assistant.MarAsstPreparator">
 		<property name="model" ref="manageAppModel" />
@@ -192,29 +286,45 @@
 	</bean>
 	
 	
-	<bean id="userdefitemContainer" class="nc.ui.uif2.userdefitem.UserDefItemContainer">
-		<property name="context" ref="context" />
-		<property name="params">
-			<list>
-				<bean class="nc.ui.uif2.userdefitem.QueryParam">
-					<property name="mdfullname" value="so.MmPlanBill" />
-				</bean>
-				<bean class="nc.ui.uif2.userdefitem.QueryParam">
-					<property name="mdfullname" value="so.PlanProduceDetailVO" />
-				</bean>
-				<bean class="nc.ui.uif2.userdefitem.QueryParam">
-					<property name="rulecode" value="materialassistant" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-	
+
 	
 	
 	<bean id="orgRefPanel" class="nc.ui.so.qs.mmplanbill.ref.MMPlanOrgRefPane">
 		<property name="context" ref="context" />
 	</bean>
-
+	
+	<bean id="QueryActionGroup" class="nc.funcnode.ui.action.GroupAction">
+		<property name="code" value="QueryGroup"></property>
+		<property name="actions">
+			<list>
+				<ref bean="PreQueryAction" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="PreQueryAction" class="nc.ui.uif2.actions.QueryAction">
+		<property name="model" ref="manageAppModel"></property>
+	    <property name="dataManager" ref="modelDataManager"></property>
+	    <property name="queryDelegator" ref="queryDelegator"></property>
+	</bean>
+	
+	<bean id="queryDelegator" class="nc.ui.so.qs.mmplanbill.actions.PlanBillQueryDelegator">
+		<property name="context" ref="context"></property>
+		<property name="nodekey" value="planbillquery" />
+	</bean>
+	
+	
+	<bean id="modelDataManager" class="nc.ui.so.xlx.tran.car.model.CarInfoDataManager">
+	    <property name="model" ref="manageAppModel"/>
+	    <property name="paginationModel" ref="paginationModel" />
+	    <property name="service" ref="service"/>
+	</bean>
+	
+	<bean id="service" class="nc.ui.so.qs.mmplanbill.service.PlanBillAppModelService">
+	</bean>
+	
+	
+	
 </beans>
 
 

@@ -80,6 +80,8 @@ public class PlanProduceDetailVO extends SuperVO {
 	private nc.vo.pub.lang.UFDouble latitudedensity;
 	private nc.vo.pub.lang.UFDouble width;
 	private nc.vo.pub.lang.UFDouble length;
+	private java.lang.String pk_customer;
+	private java.lang.String endcustomer;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -146,6 +148,8 @@ public class PlanProduceDetailVO extends SuperVO {
 	public static final String LATITUDEDENSITY = "latitudedensity";
 	public static final String WIDTH = "width";
 	public static final String LENGTH = "length";
+	public static final String PK_CUSTOMER = "pk_customer";
+	public static final String ENDCUSTOMER = "endcustomer";
 			
 	/**
 	 * 属性pk_planbill_b的Getter方法.属性名：主键
@@ -1154,6 +1158,38 @@ public class PlanProduceDetailVO extends SuperVO {
 	 */
 	public void setLength (nc.vo.pub.lang.UFDouble newLength ) {
 	 	this.length = newLength;
+	} 	  
+	/**
+	 * 属性pk_customer的Getter方法.属性名：客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getPk_customer () {
+		return pk_customer;
+	}   
+	/**
+	 * 属性pk_customer的Setter方法.属性名：客户
+	 * 创建日期:
+	 * @param newPk_customer java.lang.String
+	 */
+	public void setPk_customer (java.lang.String newPk_customer ) {
+	 	this.pk_customer = newPk_customer;
+	} 	  
+	/**
+	 * 属性endcustomer的Getter方法.属性名：终端客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getEndcustomer () {
+		return endcustomer;
+	}   
+	/**
+	 * 属性endcustomer的Setter方法.属性名：终端客户
+	 * 创建日期:
+	 * @param newEndcustomer java.lang.String
+	 */
+	public void setEndcustomer (java.lang.String newEndcustomer ) {
+	 	this.endcustomer = newEndcustomer;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr

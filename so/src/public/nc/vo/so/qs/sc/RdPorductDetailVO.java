@@ -80,6 +80,8 @@ public class RdPorductDetailVO extends SuperVO {
 	private java.lang.String vfree8;
 	private java.lang.String vfree9;
 	private java.lang.String vfree10;
+	private java.lang.String pk_customer;
+	private java.lang.String endcustomer;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -146,6 +148,8 @@ public class RdPorductDetailVO extends SuperVO {
 	public static final String VFREE8 = "vfree8";
 	public static final String VFREE9 = "vfree9";
 	public static final String VFREE10 = "vfree10";
+	public static final String PK_CUSTOMER = "pk_customer";
+	public static final String ENDCUSTOMER = "endcustomer";
 			
 	/**
 	 * 属性pk_rdpd的Getter方法.属性名：主键
@@ -1154,6 +1158,38 @@ public class RdPorductDetailVO extends SuperVO {
 	 */
 	public void setVfree10 (java.lang.String newVfree10 ) {
 	 	this.vfree10 = newVfree10;
+	} 	  
+	/**
+	 * 属性pk_customer的Getter方法.属性名：客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getPk_customer () {
+		return pk_customer;
+	}   
+	/**
+	 * 属性pk_customer的Setter方法.属性名：客户
+	 * 创建日期:
+	 * @param newPk_customer java.lang.String
+	 */
+	public void setPk_customer (java.lang.String newPk_customer ) {
+	 	this.pk_customer = newPk_customer;
+	} 	  
+	/**
+	 * 属性endcustomer的Getter方法.属性名：终端客商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getEndcustomer () {
+		return endcustomer;
+	}   
+	/**
+	 * 属性endcustomer的Setter方法.属性名：终端客商
+	 * 创建日期:
+	 * @param newEndcustomer java.lang.String
+	 */
+	public void setEndcustomer (java.lang.String newEndcustomer ) {
+	 	this.endcustomer = newEndcustomer;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr
