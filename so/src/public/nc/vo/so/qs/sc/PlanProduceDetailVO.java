@@ -73,6 +73,15 @@ public class PlanProduceDetailVO extends SuperVO {
 	private java.lang.String vfree9;
 	private java.lang.String vfree10;
 	private java.lang.String pk_machine;
+	private java.lang.String cprojectid;
+	private java.lang.String cproductorid;
+	private java.lang.String cvendorid;
+	private java.lang.String tagline;
+	private nc.vo.pub.lang.UFDouble latitudedensity;
+	private nc.vo.pub.lang.UFDouble width;
+	private nc.vo.pub.lang.UFDouble length;
+	private java.lang.String pk_customer;
+	private java.lang.String endcustomer;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -132,6 +141,15 @@ public class PlanProduceDetailVO extends SuperVO {
 	public static final String VFREE9 = "vfree9";
 	public static final String VFREE10 = "vfree10";
 	public static final String PK_MACHINE = "pk_machine";
+	public static final String CPROJECTID = "cprojectid";
+	public static final String CPRODUCTORID = "cproductorid";
+	public static final String CVENDORID = "cvendorid";
+	public static final String TAGLINE = "tagline";
+	public static final String LATITUDEDENSITY = "latitudedensity";
+	public static final String WIDTH = "width";
+	public static final String LENGTH = "length";
+	public static final String PK_CUSTOMER = "pk_customer";
+	public static final String ENDCUSTOMER = "endcustomer";
 			
 	/**
 	 * 属性pk_planbill_b的Getter方法.属性名：主键
@@ -1028,6 +1046,150 @@ public class PlanProduceDetailVO extends SuperVO {
 	 */
 	public void setPk_machine (java.lang.String newPk_machine ) {
 	 	this.pk_machine = newPk_machine;
+	} 	  
+	/**
+	 * 属性cprojectid的Getter方法.属性名：项目
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCprojectid () {
+		return cprojectid;
+	}   
+	/**
+	 * 属性cprojectid的Setter方法.属性名：项目
+	 * 创建日期:
+	 * @param newCprojectid java.lang.String
+	 */
+	public void setCprojectid (java.lang.String newCprojectid ) {
+	 	this.cprojectid = newCprojectid;
+	} 	  
+	/**
+	 * 属性cproductorid的Getter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCproductorid () {
+		return cproductorid;
+	}   
+	/**
+	 * 属性cproductorid的Setter方法.属性名：生产厂商
+	 * 创建日期:
+	 * @param newCproductorid java.lang.String
+	 */
+	public void setCproductorid (java.lang.String newCproductorid ) {
+	 	this.cproductorid = newCproductorid;
+	} 	  
+	/**
+	 * 属性cvendorid的Getter方法.属性名：供应商
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getCvendorid () {
+		return cvendorid;
+	}   
+	/**
+	 * 属性cvendorid的Setter方法.属性名：供应商
+	 * 创建日期:
+	 * @param newCvendorid java.lang.String
+	 */
+	public void setCvendorid (java.lang.String newCvendorid ) {
+	 	this.cvendorid = newCvendorid;
+	} 	  
+	/**
+	 * 属性tagline的Getter方法.属性名：标识线
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getTagline () {
+		return tagline;
+	}   
+	/**
+	 * 属性tagline的Setter方法.属性名：标识线
+	 * 创建日期:
+	 * @param newTagline java.lang.String
+	 */
+	public void setTagline (java.lang.String newTagline ) {
+	 	this.tagline = newTagline;
+	} 	  
+	/**
+	 * 属性latitudedensity的Getter方法.属性名：维密
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLatitudedensity () {
+		return latitudedensity;
+	}   
+	/**
+	 * 属性latitudedensity的Setter方法.属性名：维密
+	 * 创建日期:
+	 * @param newLatitudedensity nc.vo.pub.lang.UFDouble
+	 */
+	public void setLatitudedensity (nc.vo.pub.lang.UFDouble newLatitudedensity ) {
+	 	this.latitudedensity = newLatitudedensity;
+	} 	  
+	/**
+	 * 属性width的Getter方法.属性名：宽度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getWidth () {
+		return width;
+	}   
+	/**
+	 * 属性width的Setter方法.属性名：宽度
+	 * 创建日期:
+	 * @param newWidth nc.vo.pub.lang.UFDouble
+	 */
+	public void setWidth (nc.vo.pub.lang.UFDouble newWidth ) {
+	 	this.width = newWidth;
+	} 	  
+	/**
+	 * 属性length的Getter方法.属性名：长度
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLength () {
+		return length;
+	}   
+	/**
+	 * 属性length的Setter方法.属性名：长度
+	 * 创建日期:
+	 * @param newLength nc.vo.pub.lang.UFDouble
+	 */
+	public void setLength (nc.vo.pub.lang.UFDouble newLength ) {
+	 	this.length = newLength;
+	} 	  
+	/**
+	 * 属性pk_customer的Getter方法.属性名：客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getPk_customer () {
+		return pk_customer;
+	}   
+	/**
+	 * 属性pk_customer的Setter方法.属性名：客户
+	 * 创建日期:
+	 * @param newPk_customer java.lang.String
+	 */
+	public void setPk_customer (java.lang.String newPk_customer ) {
+	 	this.pk_customer = newPk_customer;
+	} 	  
+	/**
+	 * 属性endcustomer的Getter方法.属性名：终端客户
+	 * 创建日期:
+	 * @return java.lang.String
+	 */
+	public java.lang.String getEndcustomer () {
+		return endcustomer;
+	}   
+	/**
+	 * 属性endcustomer的Setter方法.属性名：终端客户
+	 * 创建日期:
+	 * @param newEndcustomer java.lang.String
+	 */
+	public void setEndcustomer (java.lang.String newEndcustomer ) {
+	 	this.endcustomer = newEndcustomer;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr

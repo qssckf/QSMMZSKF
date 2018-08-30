@@ -61,6 +61,12 @@ public class MaschineVO extends SuperVO {
 	private java.lang.String def18;
 	private java.lang.String def19;
 	private java.lang.String def20;
+	private nc.vo.pub.lang.UFDouble widthstart;
+	private nc.vo.pub.lang.UFDouble widthend;
+	private nc.vo.pub.lang.UFDouble lengthstart;
+	private nc.vo.pub.lang.UFDouble lengend;
+	private nc.vo.pub.lang.UFDouble latitudedensitystart;
+	private nc.vo.pub.lang.UFDouble latitudedensityend;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -108,6 +114,12 @@ public class MaschineVO extends SuperVO {
 	public static final String DEF18 = "def18";
 	public static final String DEF19 = "def19";
 	public static final String DEF20 = "def20";
+	public static final String WIDTHSTART = "widthstart";
+	public static final String WIDTHEND = "widthend";
+	public static final String LENGTHSTART = "lengthstart";
+	public static final String LENGEND = "lengend";
+	public static final String LATITUDEDENSITYSTART = "latitudedensitystart";
+	public static final String LATITUDEDENSITYEND = "latitudedensityend";
 			
 	/**
 	 * 属性pk_maschine的Getter方法.属性名：机器主键
@@ -812,6 +824,102 @@ public class MaschineVO extends SuperVO {
 	 */
 	public void setDef20 (java.lang.String newDef20 ) {
 	 	this.def20 = newDef20;
+	} 	  
+	/**
+	 * 属性widthstart的Getter方法.属性名：宽度起
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getWidthstart () {
+		return widthstart;
+	}   
+	/**
+	 * 属性widthstart的Setter方法.属性名：宽度起
+	 * 创建日期:
+	 * @param newWidthstart nc.vo.pub.lang.UFDouble
+	 */
+	public void setWidthstart (nc.vo.pub.lang.UFDouble newWidthstart ) {
+	 	this.widthstart = newWidthstart;
+	} 	  
+	/**
+	 * 属性widthend的Getter方法.属性名：宽度止
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getWidthend () {
+		return widthend;
+	}   
+	/**
+	 * 属性widthend的Setter方法.属性名：宽度止
+	 * 创建日期:
+	 * @param newWidthend nc.vo.pub.lang.UFDouble
+	 */
+	public void setWidthend (nc.vo.pub.lang.UFDouble newWidthend ) {
+	 	this.widthend = newWidthend;
+	} 	  
+	/**
+	 * 属性lengthstart的Getter方法.属性名：长度起
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLengthstart () {
+		return lengthstart;
+	}   
+	/**
+	 * 属性lengthstart的Setter方法.属性名：长度起
+	 * 创建日期:
+	 * @param newLengthstart nc.vo.pub.lang.UFDouble
+	 */
+	public void setLengthstart (nc.vo.pub.lang.UFDouble newLengthstart ) {
+	 	this.lengthstart = newLengthstart;
+	} 	  
+	/**
+	 * 属性lengend的Getter方法.属性名：长度止
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLengend () {
+		return lengend;
+	}   
+	/**
+	 * 属性lengend的Setter方法.属性名：长度止
+	 * 创建日期:
+	 * @param newLengend nc.vo.pub.lang.UFDouble
+	 */
+	public void setLengend (nc.vo.pub.lang.UFDouble newLengend ) {
+	 	this.lengend = newLengend;
+	} 	  
+	/**
+	 * 属性latitudedensitystart的Getter方法.属性名：纬密起
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLatitudedensitystart () {
+		return latitudedensitystart;
+	}   
+	/**
+	 * 属性latitudedensitystart的Setter方法.属性名：纬密起
+	 * 创建日期:
+	 * @param newLatitudedensitystart nc.vo.pub.lang.UFDouble
+	 */
+	public void setLatitudedensitystart (nc.vo.pub.lang.UFDouble newLatitudedensitystart ) {
+	 	this.latitudedensitystart = newLatitudedensitystart;
+	} 	  
+	/**
+	 * 属性latitudedensityend的Getter方法.属性名：纬密止
+	 * 创建日期:
+	 * @return nc.vo.pub.lang.UFDouble
+	 */
+	public nc.vo.pub.lang.UFDouble getLatitudedensityend () {
+		return latitudedensityend;
+	}   
+	/**
+	 * 属性latitudedensityend的Setter方法.属性名：纬密止
+	 * 创建日期:
+	 * @param newLatitudedensityend nc.vo.pub.lang.UFDouble
+	 */
+	public void setLatitudedensityend (nc.vo.pub.lang.UFDouble newLatitudedensityend ) {
+	 	this.latitudedensityend = newLatitudedensityend;
 	} 	  
 	/**
 	 * 属性dr的Getter方法.属性名：dr
