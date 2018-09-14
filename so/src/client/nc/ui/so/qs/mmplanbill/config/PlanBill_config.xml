@@ -190,7 +190,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+		
 	<bean id="listInfoPnl" class="nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel">
 		<property name="model" ref="manageAppModel" />
 	</bean>
@@ -219,6 +219,10 @@
 			</bean>
 		</property>
 	</bean>
+	
+	
+
+	
 	
 	<bean id="listInfoPnl1" class="nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel">
 		<property name="model" ref="PlanDetaiManageAppModel" />
@@ -311,16 +315,10 @@
 		<property name="productorField" value="cproductorid" />
 	</bean>
 	
-	
-
-	
-	
-	<bean id="orgRefPanel" class="nc.ui.so.qs.mmplanbill.ref.MMPlanOrgRefPane">
-		<property name="context" ref="context" />
-	</bean>
-	
+		
 	<bean id="QueryActionGroup" class="nc.funcnode.ui.action.GroupAction">
 		<property name="code" value="QueryGroup"></property>
+		<property name="name" value="查询"></property>
 		<property name="actions">
 			<list>
 				<ref bean="PreQueryAction" />
@@ -331,12 +329,12 @@
 	<bean id="PreQueryAction" class="nc.ui.so.qs.mmplanbill.actions.PlanBillQueryActions">
 		<property name="model" ref="manageAppModel"></property>
 	    <property name="dataManager" ref="modelDataManager"></property>
+	   	<property name="NodeKey" value="mmplan" />
+	   	<property name="qryCondDLGInitializer" ref="MmPlanQryCondDLGInitializer"></property>
 	</bean>
 	
-
-	
-	
-
+	<bean id="MmPlanQryCondDLGInitializer" class="nc.ui.so.qs.mmplanbill.query.PlanBillQryCondDLGInitializer">	
+  	</bean>
 	
 	
 	

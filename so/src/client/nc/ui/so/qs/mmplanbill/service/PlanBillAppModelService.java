@@ -41,7 +41,9 @@ public class PlanBillAppModelService implements IAppModelServiceEx {
 	@Override
 	public Object[] queryVOsByPks(String[] pks) throws BusinessException {
 		// TODO 自动生成的方法存根
-		return null;
+		
+		return this.getPlanbillservice().queryVObyPks(pks);
+	
 	}
 	
 	public String[] queryVosPksBySqlWhere(String[] orgIDs, String condition) throws BusinessException{
@@ -53,7 +55,7 @@ public class PlanBillAppModelService implements IAppModelServiceEx {
 		
 		String inSql = BDSqlInUtil.getInSql(orgIDs, false);
 		 
-		builder.append(" and (pk_org in ").append(inSql + ")");
+		builder.append(" and (so_preorder_b.pk_org in ").append(inSql + ")");
 		 
 		return this.getPlanbillservice().queryVOPks(builder.toString());
 		

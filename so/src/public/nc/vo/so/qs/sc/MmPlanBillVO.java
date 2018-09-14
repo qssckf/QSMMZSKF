@@ -4,7 +4,15 @@
 \***************************************************************/
 package nc.vo.so.qs.sc;
 	
+import java.lang.reflect.Method;
+
+import org.apache.commons.beanutils.Converter;
+
+import nc.jdbc.framework.util.BeanConvertor;
+import nc.jdbc.framework.util.StringConvertor;
+import nc.vo.hr.append.IAppendableVO;
 import nc.vo.pub.*;
+import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
 
 /**
  * <b> 在此处简要描述此类的功能 </b>
@@ -16,7 +24,7 @@ import nc.vo.pub.*;
  * @version NCPrj ??
  */
 @SuppressWarnings("serial")
-public class MmPlanBillVO extends SuperVO {
+public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	private java.lang.String pk_planbill;
 	private java.lang.String vsrcid;
 	private java.lang.String vsrctype;
@@ -87,6 +95,9 @@ public class MmPlanBillVO extends SuperVO {
 	private java.lang.String otherproduction;
 	private nc.vo.pub.lang.UFDouble elongation;
 	private nc.vo.pub.lang.UFBoolean spacer;
+	private nc.vo.pub.lang.UFBoolean sftemp;
+
+
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -160,6 +171,7 @@ public class MmPlanBillVO extends SuperVO {
 	public static final String OTHERPRODUCTION = "otherproduction";
 	public static final String ELONGATION = "elongation";
 	public static final String SPACER = "spacer";
+	public static final String SFTEMP="sftemp";
 			
 	/**
 	 * 属性pk_planbill的Getter方法.属性名：主键
@@ -1313,6 +1325,14 @@ public class MmPlanBillVO extends SuperVO {
 	public void setTs (nc.vo.pub.lang.UFDateTime newTs ) {
 	 	this.ts = newTs;
 	} 	  
+	
+	
+	public nc.vo.pub.lang.UFBoolean getSftemp() {
+		return sftemp;
+	}
+	public void setSftemp(nc.vo.pub.lang.UFBoolean sftemp) {
+		this.sftemp = sftemp;
+	}
  
 	/**
 	  * <p>取得父VO主键字段.
@@ -1365,8 +1385,31 @@ public class MmPlanBillVO extends SuperVO {
 	
 	@nc.vo.annotation.MDEntityInfo(beanFullclassName =  "nc.vo.so.qs.sc.MmPlanBillVO" )
 	public IVOMeta getMetaData() {
-   		return null;
+		return VOMetaFactory.getInstance().getVOMeta("so.MmPlanBill");
   	}
+	
+	public void setAttributeValue(String name, Object value) {
+		// TODO 自动生成的方法存根
+		
+		String attributeName = name.toLowerCase();
+		Method method = BeanHelper.getMethod(this, attributeName);
+		if (method != null)
+		{
+			Converter converter = BeanConvertor.getConVerter(method.getParameterTypes()[0]);
+			if ((converter != null) && (value != null))
+			{
+				if (!(converter instanceof StringConvertor)) {
+					value = converter.convert(method.getParameterTypes()[0], value);
+				}
+			}
+			
+			super.setAttributeValue(attributeName, value);
+			}
+		
+		super.setAttributeValue(name, value);
+	}
+	
+	
 } 
 
 

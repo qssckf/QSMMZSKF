@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 
 import nc.bs.uif2.BusinessExceptionAdapter;
+import nc.ui.pubapp.uif2app.query2.model.IModelDataManager;
 import nc.ui.querytemplate.filter.IFilter;
 import nc.ui.querytemplate.querytree.FromWhereSQL;
 import nc.ui.querytemplate.querytree.IQueryScheme;
@@ -23,7 +24,7 @@ import nc.ui.uif2.model.IQueryAndRefreshManagerEx;
 import nc.vo.logging.Debug;
 import nc.vo.pub.BusinessException;
 
-public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefreshManagerEx,IPaginationModelListener{
+public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefreshManagerEx,IPaginationModelListener,IModelDataManager{
 
 	private ManageAppModel model;
 	private PaginationModel paginationModel = null;
@@ -215,7 +216,7 @@ public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefr
 			
 			for (IFilter filter : filters) {
 				
-				if (filter.getFilterMeta().getFieldCode().equals("pk_org")) {
+				if (filter.getFilterMeta().getFieldCode().equals("so_preorder_b.pk_org")) {
 						
 					value = filter.getFieldValue();
 					
@@ -271,6 +272,15 @@ public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefr
 	public void setShowSealDataFlag(boolean paramBoolean) {
 		// TODO 自动生成的方法存根
 		
+	}
+
+	@Override
+	public void initModelByQueryScheme(IQueryScheme queryscheme) {
+		// TODO 自动生成的方法存根
+		this.scheme=queryscheme;
+		String[] pks=null;
+		pks = queryByCon(queryscheme.getWhereSQLOnly());
+		setDriverVOPKsTOPaginationModel(pks);
 	}
 
 }
