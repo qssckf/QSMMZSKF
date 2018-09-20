@@ -35,9 +35,7 @@ import nc.vo.uif2.LoginContext;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ public class MaschineBillListView
-/*     */   extends ShowUpableBillListView
-/*     */ {
+/*     */ public class MaschineBillListView extends ShowUpableBillListView {
 /*     */   private static final long serialVersionUID = 632212855802408L;
 /*  40 */   private String wip_tableCode = "mater";
 /*     */   
@@ -76,11 +74,11 @@ import nc.vo.uif2.LoginContext;
 /*     */ 
 /*     */   public void handleEvent(AppEvent event)
 /*     */   {
-///*  77 */     super.handleEvent(event);
+/*  77 */     super.handleEvent(event);
 ///*  78 */     if ("Model_Initialized".equals(event.getType())) {
 ///*  79 */       sortViewData();
 ///*     */     }
-///*     */     
+/*     */     
 ///*  82 */     if ("Selection_Changed".equals(event.getType())) {
 ///*  83 */       getBillListPanel().getBodyBillModel("replace_items").execLoadFormulasByKey("cprematrelatshow");
 ///*     */       
@@ -112,7 +110,7 @@ import nc.vo.uif2.LoginContext;
 /*     */     
 /* 111 */     getMaschineScaleUtil().setListScale(getBillListPanel(), getModel().getContext().getPk_group(), getModel().getContext().getPk_org());
 /*     */     
-/* 113 */     scaleProcess();
+///* 113 */     scaleProcess();
 /*     */     
 /*     */ 
 /*     */ 
@@ -126,15 +124,15 @@ import nc.vo.uif2.LoginContext;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   public void scaleProcess()
-/*     */   {
+///*     */   public void scaleProcess()
+///*     */   {
 ///* 129 */     BillItem item = getBillListPanel().getBodyItem("prodinv_items", "nastnum");
 ///* 130 */     BillItem item2 = getBillListPanel().getBodyItem("prodinv_items", "nnum");
 ///* 131 */     BillItem item3 = getBillListPanel().getBodyItem("prodinv_items", "vchangerate");
 ///* 132 */     item.addDecimalListener(new PDWkDecimalCastunitidListener());
 ///* 133 */     item2.addDecimalListener(new PDWkDecimalCastidListener());
 ///* 134 */     item3.addDecimalListener(new PDWkDecimalCastunitidListener());
-/*     */   }
+///*     */   }
 /*     */   
 /*     */   protected void synchronizeDataFromModel()
 /*     */   {
@@ -143,22 +141,22 @@ import nc.vo.uif2.LoginContext;
 /* 141 */     super.synchronizeDataFromModel();
 /* 142 */     Object[] datas = getModel().getData().toArray();
 /* 143 */     super.synchronizeDataFromModel();
-/* 144 */     for (Object data : datas) {
-/* 145 */       setValue(data);
-/*     */     }
+///* 144 */     for (Object data : datas) {
+///* 145 */       setValue(data);
+///*     */     }
 /*     */   }
 /*     */   
-/*     */   public void setValue(Object object)
-/*     */   {
+///*     */   public void setValue(Object object)
+///*     */   {
 ///* 151 */     addUnitId(object);
-/*     */   }
+///*     */   }
 /*     */   
 /*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   private void addUnitId(Object object)
-/*     */   {
+///*     */   private void addUnitId(Object object)
+///*     */   {
 ///* 160 */     AggWkVO aggWkVO = (AggWkVO)object;
 ///* 161 */     WkProdinvVO[] prodinvItemVOs = (WkProdinvVO[])aggWkVO.getChildren(WkProdinvVO.class);
 ///* 162 */     if (!MMArrayUtil.isEmpty(prodinvItemVOs)) {
@@ -173,7 +171,7 @@ import nc.vo.uif2.LoginContext;
 ///*     */         }
 ///*     */       }
 ///*     */     }
-/*     */   }
+///*     */   }
 /*     */   
 /*     */   protected void syschronizeSelectedRowUpdate()
 /*     */   {
@@ -195,7 +193,7 @@ import nc.vo.uif2.LoginContext;
 ///*     */       }
 ///*     */     }
 ///*     */     
-///* 196 */     super.syschronizeSelectedRowUpdate();
+/* 196 */     super.syschronizeSelectedRowUpdate();
 /*     */   }
 /*     */   
 /*     */ 

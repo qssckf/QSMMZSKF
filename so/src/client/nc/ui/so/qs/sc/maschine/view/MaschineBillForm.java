@@ -19,6 +19,7 @@ package nc.ui.so.qs.sc.maschine.view;
 /*     */ import nc.ui.pubapp.uif2app.event.list.ListHeadRowChangedEvent;
 			import nc.ui.so.qs.sc.maschine.model.MaschineBillManageModel;
 /*     */ import nc.ui.uif2.AppEvent;
+import nc.ui.uif2.ShowStatusBarMsgUtil;
 /*     */ import nc.ui.uif2.UIState;
 /*     */ import nc.ui.uif2.model.AbstractAppModel;
 /*     */ import nc.util.mmf.busi.service.OrgUnitPubService;
@@ -28,13 +29,18 @@ package nc.ui.so.qs.sc.maschine.view;
 /*     */ import nc.vo.jcom.lang.StringUtil;
 ///*     */ import nc.vo.pd.pd0404.entity.AggWkVO;
 ///*     */ import nc.vo.pd.pd0404.entity.WkProdinvVO;
-/*     */ import nc.vo.pd.wk.wkg.entity.TimeUnitEnum;
+///*     */ import nc.vo.pd.wk.wkg.entity.TimeUnitEnum;
 /*     */ import nc.vo.pub.SuperVO;
 /*     */ import nc.vo.pub.bill.MetaDataPropertyAdpter;
 /*     */ import nc.vo.pub.lang.UFBoolean;
-import nc.vo.so.qs.sc.AggMaschineVO;
-import nc.vo.uif2.LoginContext;
+import nc.vo.pub.lang.UFDate;
+import nc.vo.pubapp.AppContext;
+import nc.vo.so.qs.en.MachStatus;
+			import nc.vo.so.qs.sc.AggMaschineVO;
+			import nc.vo.uif2.LoginContext;
 import nc.vo.so.qs.sc.MachineMater_Mater;
+import nc.vo.so.pub.keyvalue.IKeyValue;
+import nc.ui.so.pub.keyvalue.CardKeyValue;
 /*     */ 
 /*     */ 
 /*     */ 
@@ -69,10 +75,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   public void handleEvent(AppEvent event)
 /*     */   {
 /*  68 */     super.handleEvent(event);
-/*  69 */     if ((!(event instanceof ListHeadRowChangedEvent)) || (
-/*     */     
-/*     */ 
-/*  72 */       ("UiState_Changed" == event.getType()) && (getModel().getUiState() != UIState.ADD))) {
+/*  69 */     if ((event instanceof ListHeadRowChangedEvent) || (("UiState_Changed" == event.getType()) && (getModel().getUiState() != UIState.ADD))) {
 /*  73 */       maschineSyn();
 /*     */     }
 /*  75 */     if ((getModel().getUiState() == UIState.EDIT) || (getModel().getUiState() == UIState.ADD)) {
@@ -91,13 +94,13 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   private void setTimeUnit()
 /*     */   {
 /*  90 */     String pk_org = getModel().getContext().getPk_org();
-/*  91 */     if (MMStringUtil.isEmpty(pk_org)) {
+///*  91 */     if (MMStringUtil.isEmpty(pk_org)) {
 ///*  92 */       getBillCardPanel().setHeadItem("ftimeunit", TimeUnitEnum.HOUR.value());
-/*     */     }
-/*     */     else {
-/*  95 */       MaschineBillManageModel wkModel = (MaschineBillManageModel)getModel();
+///*     */     }
+///*     */     else {
+///*  95 */       MaschineBillManageModel wkModel = (MaschineBillManageModel)getModel();
 ///*  96 */       getBillCardPanel().setHeadItem("ftimeunit", wkModel.getTimeUnitByOrg(pk_org));
-/*     */     }
+///*     */     }
 ///*  98 */     getBillCardPanel().getHeadItem("ftimeunit").setEdit(false);
 /*     */   }
 /*     */   
@@ -113,7 +116,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   
 /*     */ 
 /*     */ 
-/*     */ 
+/*     */    //表头字段“工作中心”字段
 ///* 114 */   private String[] cntEditFields = { "cwkid" };
 /*     */   
 /*     */ 
@@ -131,6 +134,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */   private void setDefaultTabCodeEdit()
 /*     */   {
+				//根据表头“生产线”字段 判断是否允许编辑页签和表头的字段值
 ///* 131 */     Object prodlineObject = this.billCardPanel.getHeadItem("bprodline").getValueObject();
 ///* 132 */     if (MMValueCheck.isEmpty(prodlineObject)) {
 ///* 133 */       return;
@@ -190,8 +194,10 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /* 179 */     getBillCardPanel().getBillModel(this.wip_tableCode).sortByColumn("pk_material", true);
 /*     */   }
 /*     */   
+			
 /*     */   private void scaleProcess()
 /*     */   {
+				//对数量字段的小数位的精度监听创建和控制
 ///* 184 */     BillItem item = getBillCardPanel().getBodyItem("prodinv_items", "nastnum");
 ///* 185 */     BillItem item2 = getBillCardPanel().getBodyItem("prodinv_items", "nnum");
 ///* 186 */     item.addDecimalListener(new PDWkDecimalCastunitidListener());
@@ -209,7 +215,8 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */   private void setPreValue()
 /*     */   {
-/* 201 */     int rowCount = getBillCardPanel().getBillModel().getRowCount();
+				//换产前后的物料编码记录
+///* 201 */     int rowCount = getBillCardPanel().getBillModel().getRowCount();
 ///* 202 */     for (int i = 0; i < rowCount; i++) {
 ///* 203 */       Object value = getBillCardPanel().getBodyValueAt(0, "cprematerialvid");
 ///* 204 */       Object value2 = getBillCardPanel().getBodyValueAt(0, "caftermaterialvid");
@@ -234,6 +241,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   
 ///*     */   private void addUnitId(Object object)
 ///*     */   {
+				//生产线物料的  计量单位  字段控制
 ///* 226 */     AggMaschineVO aggMaschineVO = (AggMaschineVO)object;
 ///* 227 */     if (!MMValueCheck.isEmpty(aggMaschineVO)) {
 ///* 228 */       WkProdinvVO[] prodinvItemVOs = (WkProdinvVO[])AggMaschineVO.getChildren(WkProdinvVO.class);
@@ -256,17 +264,18 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */   protected void onAdd()
 /*     */   {
-/* 248 */     setEditProperty(true);
+///* 248 */     setEditProperty(true);
 /* 249 */     super.onAdd();
 /*     */   }
 /*     */   
 /*     */ 
 /*     */   protected void onEdit()
 /*     */   {
-/* 255 */     setEditProperty(false);
+///* 255 */     setEditProperty(false);
 /*     */     
-/*     */ 
+/*     */ 	  String status=this.getBillCardPanel().getHeadItem("mstatus").getValue();
 /* 258 */     super.onEdit();
+			  SetItemEnableStatusWhenEdit(status);
 /*     */   }
 /*     */   
 /*     */ 
@@ -354,6 +363,34 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   protected void setDefaultValue()
 /*     */   {
 /* 345 */     execLoadFormula();
+
+			//下属内容自己写的  
+			  super.setDefaultValue();
+			  
+			  IKeyValue keyValue = new CardKeyValue(this.billCardPanel);
+			  
+			  UFDate busidate = AppContext.getInstance().getBusiDate();
+			  
+			  keyValue.setHeadValue("creationtime", busidate);
+			  keyValue.setHeadValue("mstatus", MachStatus.UnEnable.value().toString());
+
+			  
+//			  keyValue.setHeadValue("creator", busidate);
+			  
+
+			  //设置不可编辑字段
+			  this.billCardPanel.getHeadItem("pk_group").setEnabled(false);
+			  this.billCardPanel.getHeadItem("pk_org").setEnabled(false);
+			  this.billCardPanel.getHeadItem("pk_org_v").setEnabled(false);
+			  this.billCardPanel.getHeadItem("mstatus").setEnabled(false);
+			  
+			  
+			  this.billCardPanel.getHeadTailItem("creationtime").setEnabled(false);
+			  this.billCardPanel.getHeadTailItem("creator").setEnabled(false);			  
+			  this.billCardPanel.getHeadTailItem("modifier").setEnabled(false);
+			  this.billCardPanel.getHeadTailItem("modifiedtime").setEnabled(false);
+
+			  
 /*     */   }
 /*     */   
 /*     */ 
@@ -361,15 +398,65 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   private void setEditProperty(boolean b)
-/*     */   {
+///*     */   private void setEditProperty(boolean b)
+///*     */   {
+				//判断表头cwkid是否满足条件，并赋值。。。不使用
 ///* 355 */     if ((this.cntEditFields == null) || (this.cntEditFields.length == 0)) {
 ///* 356 */       return;
 ///*     */     }
 ///* 358 */     for (String field : this.cntEditFields) {
 ///* 359 */       getBillCardPanel().getHeadItem(field).setEdit(b);
 ///*     */     }
-/*     */   }
+///*     */   }
+			private void SetItemEnableStatusWhenEdit(String status) {
+				
+				if("1".equals(status)){
+					
+					this.getBillCardPanel().getHeadItem("pk_group").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_org").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_org_v").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_maschine").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("machcode").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("machname").setEnabled(false);
+										
+					this.getBillCardPanel().getHeadItem("mstatus").setEnabled(false);															
+					
+					this.billCardPanel.getHeadTailItem("creator").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("creationtime").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("modifier").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("modifiedtime").setEnabled(false);
+					
+					ShowStatusBarMsgUtil.showStatusBarMsg("数据已经启用，部分关键数据不能修改",this.getModel().getContext());
+					
+				}else if("0".equals(status)){
+					
+					this.getBillCardPanel().getHeadItem("pk_group").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_org").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_org_v").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("pk_maschine").setEnabled(false);
+					
+					this.getBillCardPanel().getHeadItem("mstatus").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("creator").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("creationtime").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("modifier").setEnabled(false);
+					
+					this.billCardPanel.getHeadTailItem("modifiedtime").setEnabled(false);
+				}
+			}
 /*     */   
 /*     */   public void initRef()
 /*     */   {
@@ -382,9 +469,9 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ 
-/*     */   public void setDefaultEditProperty()
-/*     */   {
+/*     */ 	//表头字段   能力核算值  值为 机时  字段设备利用率    可以为空
+///*     */   public void setDefaultEditProperty()
+///*     */   {
 ///* 377 */     this.billCardPanel.setTabEnabled(1, "prodinv_items", false);
 ///* 378 */     this.billCardPanel.setTabEnabled(1, "replace_items", false);
 ///*     */     
@@ -396,7 +483,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 ///* 385 */     if (this.billCardPanel.getHeadItem("fcapacitycalc").getValueObject() == Integer.valueOf(1)) {
 ///* 386 */       this.billCardPanel.getHeadItem("nequipfactor").setNull(true);
 ///*     */     }
-/*     */   }
+///*     */   }
 /*     */   
 /*     */ 
 /*     */ 
@@ -408,7 +495,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ 
+/*     */ 	//参照字段根据单据的表头pk_org和pk_group进行过滤
 /*     */   private void setDefRef(BillItem item)
 /*     */   {
 /* 403 */     String pkGroup = getModel().getContext().getPk_group();
@@ -419,7 +506,7 @@ import nc.vo.so.qs.sc.MachineMater_Mater;
 /*     */   }
 /*     */   
 /*     */ 
-/*     */ 
+/*     */   //参照字段  班次  的过滤条件
 /*     */   private void setShiftRef(BillItem item)
 /*     */   {
 /* 414 */     String pkGroup = getModel().getContext().getPk_group();

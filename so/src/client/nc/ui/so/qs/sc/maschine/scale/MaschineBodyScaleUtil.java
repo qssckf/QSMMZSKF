@@ -39,20 +39,20 @@ package nc.ui.so.qs.sc.maschine.scale;
 /*     */ 
 /*     */ 
 /*     */ 
-/*  42 */   public static final String[] bodyNASTNumKeys = { "nastnum" };
+///*  42 */   public static final String[] bodyNASTNumKeys = { "nastnum" };
 /*     */   
 /*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
 /*     */ 
-/*  49 */   public static final String[] bodyNNumKeys = { "nnum" };
+///*  49 */   public static final String[] bodyNNumKeys = { "nnum" };
 /*     */   
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ 
-/*  55 */   public static final String[] hslkeys = { "vchangerate" };
+/*     */     // ªªÀ„¬ 
+///*  55 */   public static final String[] hslkeys = { "vchangerate" };
 /*     */   
 /*     */ 
 /*     */ 
@@ -64,7 +64,7 @@ package nc.ui.so.qs.sc.maschine.scale;
 /*     */ 
 /*     */   private void setScale(BillScaleProcessor scale)
 /*     */   {
-/*  67 */     scale.setHslCtlInfo(hslkeys, PosEnum.body, null);
+///*  67 */     scale.setHslCtlInfo(hslkeys, PosEnum.body, null);
 /*     */     
 /*  69 */     scale.process();
 /*     */   }
@@ -72,10 +72,10 @@ package nc.ui.so.qs.sc.maschine.scale;
 /*     */   public void setTimeScale(ShowUpableBillForm billform) {
 /*  73 */     int timeUnitScale = getMaschineTimeScale().getTimeUnitSCaleByOrg(billform.getModel().getContext().getPk_org()).intValue();
 /*     */     
-/*  75 */     billform.getBillCardPanel().getBodyItem("prodinv_items", "ntime").setDecimalDigits(timeUnitScale);
+///*  75 */     billform.getBillCardPanel().getBodyItem("prodinv_items", "ntime").setDecimalDigits(timeUnitScale);
 /*     */     
 /*     */ 
-/*  78 */     billform.getBillCardPanel().getBodyItem("replace_items", "nreplacetime").setDecimalDigits(timeUnitScale);
+///*  78 */     billform.getBillCardPanel().getBodyItem("replace_items", "nreplacetime").setDecimalDigits(timeUnitScale);
 /*     */   }
 /*     */   
 /*     */ 
@@ -85,11 +85,11 @@ package nc.ui.so.qs.sc.maschine.scale;
 /*     */   public void setListTimeScale(BillListPanel blp, String pk_org)
 /*     */   {
 /*  87 */     int timeUnitScale = getMaschineTimeScale().getTimeUnitSCaleByOrg(pk_org).intValue();
-/*  88 */     blp.getBodyItem("prodinv_items", "ntime").setDecimalDigits(timeUnitScale);
-/*  89 */     blp.getBodyItem("replace_items", "nreplacetime").setDecimalDigits(timeUnitScale);
-/*  90 */     blp.getHeadItem("ntime").setDecimalDigits(timeUnitScale);
-/*  91 */     blp.getHeadItem("npreparetime").setDecimalDigits(timeUnitScale);
-/*  92 */     blp.getHeadItem("ndisassemtime").setDecimalDigits(timeUnitScale);
+///*  88 */     blp.getBodyItem("prodinv_items", "ntime").setDecimalDigits(timeUnitScale);
+///*  89 */     blp.getBodyItem("replace_items", "nreplacetime").setDecimalDigits(timeUnitScale);
+///*  90 */     blp.getHeadItem("ntime").setDecimalDigits(timeUnitScale);
+///*  91 */     blp.getHeadItem("npreparetime").setDecimalDigits(timeUnitScale);
+///*  92 */     blp.getHeadItem("ndisassemtime").setDecimalDigits(timeUnitScale);
 /*     */   }
 /*     */   
 /*     */ 

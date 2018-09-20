@@ -9,8 +9,8 @@ package nc.ui.so.qs.sc.maschine.model;
 ///*    */ import nc.vo.pd.pd0404.entity.AggWkVO;
 /*    */ import nc.vo.pd.pd0404.entity.PDTimeUnitUtil;
 /*    */ import nc.vo.pub.BusinessException;
-import nc.vo.pubapp.pattern.exception.ExceptionUtils;
-import nc.vo.so.qs.sc.AggMaschineVO;
+		import nc.vo.pubapp.pattern.exception.ExceptionUtils;
+		import nc.vo.so.qs.sc.AggMaschineVO;
 /*    */ 
 /*    */ 
 /*    */ 
@@ -44,7 +44,8 @@ import nc.vo.so.qs.sc.AggMaschineVO;
 /*    */   }
 /*    */   
 /*    */   private String queryTimeUnit(String pk_org) {
-/*    */     try {
+/*    */     //以下代码为调用参数语句
+			 try {
 /* 47 */       return MMBDFactoryParameter.sysInitQry().getParaString(pk_org, "MMBD008");
 /*    */     }
 /*    */     catch (BusinessException e) {

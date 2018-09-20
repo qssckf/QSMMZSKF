@@ -1,12 +1,12 @@
 package nc.ui.so.qs.sc.maschine.handler;
 /*    */ 
 /*    */ import nc.ui.ic.pub.view.PDOrgChangeMediator;
-import nc.ui.pd.pd0404.scale.PDWkBodyScaleUtil;
-/*    */ import nc.ui.pd.pd0404.scale.PDWkScaleUtil;
+//		   import nc.ui.pd.pd0404.scale.PDWkBodyScaleUtil;
+///*    */ import nc.ui.pd.pd0404.scale.PDWkScaleUtil;
 /*    */ import nc.ui.pubapp.uif2app.event.OrgChangedEvent;
-import nc.ui.pubapp.uif2app.view.ShowUpableBillForm;
-import nc.ui.so.qs.sc.maschine.scale.MaschineBodyScaleUtil;
-import nc.ui.so.qs.sc.maschine.scale.MaschineScaleUtil;
+		import nc.ui.pubapp.uif2app.view.ShowUpableBillForm;
+		import nc.ui.so.qs.sc.maschine.scale.MaschineBodyScaleUtil;
+		import nc.ui.so.qs.sc.maschine.scale.MaschineScaleUtil;
 /*    */ 
 /*    */ public class MaschineOrgChangedMediator
 /*    */   extends PDOrgChangeMediator

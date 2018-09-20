@@ -7,11 +7,11 @@ package nc.ui.so.qs.sc.maschine.handler;
 /*    */ import nc.ui.pub.bill.BillModel;
 /*    */ import nc.ui.pubapp.uif2app.event.IAppEventHandler;
 /*    */ import nc.ui.pubapp.uif2app.event.list.ListHeadRowChangedEvent;
-import nc.ui.so.qs.sc.maschine.scale.MaschineBodyScaleUtil;
-import nc.ui.so.qs.sc.maschine.scale.MaschineScaleUtil;
-import nc.ui.so.qs.sc.maschine.view.MaschineBillListView;
+		import nc.ui.so.qs.sc.maschine.scale.MaschineBodyScaleUtil;
+		import nc.ui.so.qs.sc.maschine.scale.MaschineScaleUtil;
+		import nc.ui.so.qs.sc.maschine.view.MaschineBillListView;
 /*    */ import nc.ui.uif2.model.BillManageModel;
-import nc.vo.uif2.LoginContext;
+		import nc.vo.uif2.LoginContext;
 /*    */ 
 /*    */ 
 /*    */ 

@@ -10,15 +10,13 @@ package nc.ui.so.qs.sc.maschine.handler;
 /*    */ 
 /*    */ 
 /*    */ 
-/*    */ public class MaschineCardBodyTabChangedHandler
-/*    */   extends MMEventHandler
-/*    */   implements IAppEventHandler<CardBodyTabChangedEvent>
+/*    */ public class MaschineCardBodyTabChangedHandler extends MMEventHandler implements IAppEventHandler<CardBodyTabChangedEvent>
 /*    */ {
 /*    */   public MaschineCardBodyTabChangedHandler() {}
 /*    */   
 /*    */   public void initMap()
 /*    */   {
-/* 21 */     putHandler("replace_items", nc.ui.pd.pd0404.handler.tab_repltime.PDWkCardBodyTabChangedHandler.class);
+///* 21 */     putHandler("replace_items", nc.ui.pd.pd0404.handler.tab_repltime.PDWkCardBodyTabChangedHandler.class);
 /*    */   }
 /*    */   
 /*    */ 

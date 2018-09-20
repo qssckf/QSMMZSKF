@@ -5,6 +5,7 @@
 package nc.vo.so.qs.sc;
 	
 import nc.vo.pub.*;
+import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
 
 /**
  * <b> 在此处简要描述此类的功能 </b>
@@ -1005,7 +1006,8 @@ public class MaschineVO extends SuperVO {
 	
 	@nc.vo.annotation.MDEntityInfo(beanFullclassName =  "nc.vo.so.qs.sc.MaschineVO" )
 	public IVOMeta getMetaData() {
-   		return null;
+		IVOMeta meta = VOMetaFactory.getInstance().getVOMeta("so.MaschineVO");
+   		return meta;
   	}
 } 
 

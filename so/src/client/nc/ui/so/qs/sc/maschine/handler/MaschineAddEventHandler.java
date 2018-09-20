@@ -11,12 +11,12 @@ package nc.ui.so.qs.sc.maschine.handler;
 /*    */ import nc.ui.pubapp.uif2app.event.card.CardBodyAfterRowEditEvent;
 /*    */ import nc.ui.pubapp.uif2app.event.card.CardPanelEvent;
 /*    */ import nc.ui.pubapp.uif2app.view.BillForm;
-import nc.ui.so.qs.sc.maschine.model.MaschineBillManageModel;
-import nc.ui.so.qs.sc.maschine.view.MaschineBillForm;
+		import nc.ui.so.qs.sc.maschine.model.MaschineBillManageModel;
+		import nc.ui.so.qs.sc.maschine.view.MaschineBillForm;
 /*    */ import nc.util.mmf.busi.service.OrgUnitPubService;
 /*    */ import nc.vo.pd.pd0404.message.MMPDLangConstPd0404;
 /*    */ import nc.vo.pubapp.AppContext;
-import nc.vo.uif2.LoginContext;
+		import nc.vo.uif2.LoginContext;
 /*    */ 
 /*    */ public class MaschineAddEventHandler extends nc.ui.mmf.framework.handler.MMBaseHandler implements IAppEventHandler<AddEvent>
 /*    */ {
@@ -76,14 +76,16 @@ import nc.vo.uif2.LoginContext;
 /*    */     
 /* 75 */     String pk_org = e.getContext().getPk_org();
 /* 76 */     int[] rows = event.getRows();
-/* 77 */     int[] arr$ = rows;int len$ = arr$.length; for (int i$ = 0; i$ < len$; i$++) { Integer row = Integer.valueOf(arr$[i$]);
+/* 77 */     int[] arr$ = rows;
+			 int len$ = arr$.length; for (int i$ = 0; i$ < len$; i$++) { 
+			   Integer row = Integer.valueOf(arr$[i$]);
 /* 78 */       String tabCode = e.getBillCardPanel().getBodyPanel().getTableCode();
 /* 79 */       BillCardPanelUtil utils = new BillCardPanelUtil(e.getBillCardPanel());
 /*    */       
 /* 81 */       utils.setBodyValue(AppUiContext.getInstance().getBusiDate(), row.intValue(), "dbegindate", tabCode);
 /* 82 */       utils.setBodyValue(MMPDLangConstPd0404.MAXTIME, row.intValue(), "denddate", tabCode);
 /*    */       
-/* 84 */       utils.setBodyValue(e.getBillCardPanel().getHeadItem("ftimeunit").getValueObject(), row.intValue(), "ftimeunit", tabCode);
+///* 84 */       utils.setBodyValue(e.getBillCardPanel().getHeadItem("ftimeunit").getValueObject(), row.intValue(), "ftimeunit", tabCode);
 /*    */       
 /* 86 */       utils.setBodyValue(pk_org, row.intValue(), "pk_org", tabCode);
 /*    */       

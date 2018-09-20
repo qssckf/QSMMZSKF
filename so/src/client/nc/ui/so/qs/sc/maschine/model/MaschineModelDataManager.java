@@ -13,9 +13,9 @@ package nc.ui.so.qs.sc.maschine.model;
 ///*    */ import nc.vo.pd.pd0404.entity.WkVO;
 /*    */ import nc.vo.pub.lang.UFDouble;
 /*    */ import nc.vo.pubapp.res.Variable;
-import nc.vo.so.qs.sc.AggMaschineVO;
-import nc.vo.so.qs.sc.MaschineVO;
-import nc.vo.uif2.LoginContext;
+		import nc.vo.so.qs.sc.AggMaschineVO;
+		import nc.vo.so.qs.sc.MaschineVO;
+//		import nc.vo.uif2.LoginContext;
 /*    */ 
 /*    */ public class MaschineModelDataManager extends nc.ui.pubapp.uif2app.query2.model.ModelDataManager
 /*    */ {
@@ -50,17 +50,17 @@ import nc.vo.uif2.LoginContext;
 /*    */ 
 /* 49 */         AggMaschineVO[] vos = (AggMaschineVO[])objs;
 /*    */         
-/* 51 */         if (vos != null) {
-/* 52 */           for (AggMaschineVO vo : vos) {
-/* 53 */             MaschineVO parentVO = (MaschineVO)vo.getParentVO();
+///* 51 */         if (vos != null) {
+///* 52 */           for (AggMaschineVO vo : vos) {
+///* 53 */             MaschineVO parentVO = (MaschineVO)vo.getParentVO();
 ///* 54 */             UFDouble ntime = parentVO.getNtime() == null ? UFDouble.ZERO_DBL : parentVO.getNtime();
 ///* 55 */             UFDouble nastnum = parentVO.getNastnum() == null ? UFDouble.ZERO_DBL : parentVO.getNastnum();
 ///* 56 */             UFDouble nprodfactor = ntime == UFDouble.ZERO_DBL ? null : nastnum.div(ntime);
 ///* 57 */             UFDouble nprodbeat = nastnum == UFDouble.ZERO_DBL ? null : ntime.div(nastnum);
 ///* 58 */             parentVO.setAttributeValue("nprodfactor", nprodfactor);
 ///* 59 */             parentVO.setAttributeValue("nprodbeat", nprodbeat);
-/*    */           }
-/*    */         }
+///*    */           }
+///*    */         }
 /*    */         
 /* 63 */         getModel().initModel(objs, modelDataDescriptor);
 /*    */       }

@@ -153,8 +153,7 @@ public class AggMaschineVO extends AbstractBill implements IExAggVO{
 	@Override
 	public IBillMeta getMetaData() {
 		// TODO 自动生成的方法存根
-		IBillMeta billMeta =BillMetaFactory.getInstance().getBillMeta(AggMaschineMeta.class);
-	  	return billMeta;
+	  	return new AggMaschineMeta();
 	}
 	
 	
@@ -167,6 +166,12 @@ public class AggMaschineVO extends AbstractBill implements IExAggVO{
 	     addChildren(MachineCustomer.class);
 	     addChildren(MachineDept.class);
 	     addChildren(MachineMater_Mater.class);
+	     IVOMeta cust_meta = VOMetaFactory.getInstance().getVOMeta("so.MachineCustomer");
+	     addChildForeignKey(cust_meta.getAttribute("machine_customer"));
+	     IVOMeta dept_meta = VOMetaFactory.getInstance().getVOMeta("so.MachineDept");
+	     addChildForeignKey(dept_meta.getAttribute("machine_dept"));
+	     IVOMeta mater_meta = VOMetaFactory.getInstance().getVOMeta("so.MachineMater");
+	     addChildForeignKey(mater_meta.getAttribute("machine_material"));
 	   }
 	 }
 }

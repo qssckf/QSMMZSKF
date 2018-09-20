@@ -28,7 +28,7 @@ package nc.ui.so.qs.sc.maschine.scale;
 /*    */   
 /*    */   public void setListScale(BillListPanel blp, String pk_group, String pk_org) {
 /* 30 */     setScale(new ListPaneScaleProcessor(pk_group, blp));
-///* 31 */     setListTimeScale(blp, pk_org);
+/* 31 */     setListTimeScale(blp, pk_org);
 /*    */   }
 /*    */   
 /*    */ 
@@ -58,13 +58,13 @@ package nc.ui.so.qs.sc.maschine.scale;
 ///* 58 */     billform.getBillCardPanel().getHeadItem("ntime").setDecimalDigits(timeUnitScale);
 /*    */   }
 /*    */   
-///*    */   private void setListTimeScale(BillListPanel blp, String pk_org)
-///*    */   {
-///* 63 */     int timeUnitScale = getMaschineTimeScale().getTimeUnitSCaleByOrg(pk_org).intValue();
+/*    */   private void setListTimeScale(BillListPanel blp, String pk_org)
+/*    */   {
+/* 63 */     int timeUnitScale = getMaschineTimeScale().getTimeUnitSCaleByOrg(pk_org).intValue();
 ///* 64 */     blp.getHeadItem("npreparetime").setDecimalDigits(timeUnitScale);
 ///* 65 */     blp.getHeadItem("ndisassemtime").setDecimalDigits(timeUnitScale);
 ///* 66 */     blp.getHeadItem("ntime").setDecimalDigits(timeUnitScale);
-///*    */   }
+/*    */   }
 /*    */   
 /*    */ 
 /*    */ 
