@@ -139,13 +139,15 @@ public class MaschineMaintainImpl implements IMaschineMaintain {
 @Override
 	public AggMaschineVO enable(AggMaschineVO obj) throws BusinessException {
 		// TODO 自动生成的方法存根
-		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
-
-		AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_tranflow_h()});
-	
-		MaschineEnableBP bp=new MaschineEnableBP();
-	
-		return bp.enable(new AggMaschineVO[]{obj},oldobj)[0];
+//		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
+//		
+//
+//		AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_tranflow_h()});
+//	
+//		MaschineEnableBP bp=new MaschineEnableBP();
+//	
+//		return bp.enable(new AggMaschineVO[]{obj},oldobj)[0];
+		return null;
 	}
 
 @Override

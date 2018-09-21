@@ -174,4 +174,7 @@ public class AggMaschineVO extends AbstractBill implements IExAggVO{
 	     addChildForeignKey(mater_meta.getAttribute("machine_material"));
 	   }
 	 }
+	  public MaschineVO getParentVO(){
+		  	return (MaschineVO)this.getParent();
+		  }
 }

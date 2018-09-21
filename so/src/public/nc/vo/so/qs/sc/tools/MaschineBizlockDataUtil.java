@@ -27,8 +27,8 @@ public class MaschineBizlockDataUtil {
 			
 			boolean lock_acquired = PKLock.getInstance().addBatchDynamicLock(lockKeys);
 			
-			if (!lock_acquired) {
-				throw new CarLockFailedException(lockKeys);
+//			if (!lock_acquired) {
+//				throw new CarLockFailedException(lockKeys);
 //			}
 			
 		}

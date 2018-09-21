@@ -28,7 +28,7 @@ public class BillSetDefaultValueRule implements IRule<AggMaschineVO>{
 		
 		for(AggMaschineVO obj:objs){
 			
-			String sql=bulidSQL(obj.getParentVO().getTableName(),"mstatus","pk_org",obj.getParentVO().getPk_org(),"tranbillbustype",obj.getParentVO().getTranbillbustype());
+			String sql=bulidSQL(obj.getParentVO().getTableName(),"mstatus","pk_org",obj.getParentVO().getPk_org(),"pk_group",obj.getParentVO().getPk_group());
 			
 			try {
 				getBao().executeUpdate(sql);
@@ -44,10 +44,10 @@ public class BillSetDefaultValueRule implements IRule<AggMaschineVO>{
 	}
 	
 	
-	public String bulidSQL(String table,String defaultfield,String pkorgfield,String pk_org,String tratypeid,String tratypevalue){
+	public String bulidSQL(String table,String defaultfield,String pkorgfield,String pk_org,String pk_groupfield,String pk_group){
 		
 		String sql = "update %1$s set %2$s='1' where %3$s='%4$s' and %5$s='%6$s'  and dr=0 ";
-		sql = String.format(sql, new Object[] { table,defaultfield,pkorgfield,pk_org,tratypeid,tratypevalue});
+		sql = String.format(sql, new Object[] { table,defaultfield,pkorgfield,pk_org,pk_groupfield,pk_group});
 		
 		return sql;
 	}

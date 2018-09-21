@@ -23,7 +23,7 @@ public class MaschineFlowBusLockRule implements IRule<AggMaschineVO>{
 		if(obj instanceof IMaschineBillLock[]){
 			
 			try {
-				MaschineBizlockDataUtil.lockDataByBizlock(obj);
+				MaschineBizlockDataUtil.lockDataByBizlock((IMaschineBillLock[]) obj);
 			} catch (BusinessException e) {
 				// TODO 自动生成的 catch 块
 				ExceptionUtils.wrappException(e);
