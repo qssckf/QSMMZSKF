@@ -11,25 +11,21 @@ public class PlanBillQryCondDLGInitializer implements IQueryConditionDLGInitiali
 	public void initQueryConditionDLG(QueryConditionDLGDelegator dlgDelegator) {
 		// TODO 自动生成的方法存根
 		
-		 setDefaultPk_org(dlgDelegator);
-		 
-		 
+		dlgDelegator.registerNeedPermissionOrgFieldCodes(new String[] { "so_preorder_b.pk_org" });
 		
+		initFilterRef(dlgDelegator);
 		
 	}
 	
-	private void setDefaultPk_org(QueryConditionDLGDelegator dlgDelegator)
-	{
-		String defaultOrg = null;
-		try {
-			defaultOrg = DefaultDataSettingAccessor.getDefaultSaleOrg();
-		}catch (Exception ex) {
-			ExceptionUtils.wrappException(ex);
-		}
+	private void initFilterRef(QueryConditionDLGDelegator condDLGDelegator) {
+		// TODO 自动生成的方法存根
 		
-		if ((defaultOrg != null) && (defaultOrg.trim().length() > 0)) {
-			dlgDelegator.setDefaultValue("so_preorder_b.pk_org", defaultOrg);
-		}
+		DeptFilter carFilter=new DeptFilter(condDLGDelegator,"so_preorder_b.pk_org","so_preorder.cdeptid");
+		
+		carFilter.addEditorListener();
+
+		
+		
 	}
 
 }

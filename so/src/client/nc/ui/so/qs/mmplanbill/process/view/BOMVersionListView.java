@@ -9,6 +9,7 @@ import javax.swing.ListSelectionModel;
 import nc.bs.framework.common.NCLocator;
 import nc.bs.logging.Logger;
 import nc.itf.so.qs.sc.planbill.service.IPlanBillSerive;
+import nc.ui.dcm.chnlrplstrct.maintain.action.MessageDialog;
 import nc.ui.ml.NCLangRes;
 import nc.ui.pub.bill.BillItem;
 import nc.ui.pub.bill.BillItemHyperlinkEvent;
@@ -23,6 +24,7 @@ import nc.ui.pubapp.uif2app.view.value.BillListViewMetaDataFullValueAdapter;
 import nc.ui.so.qs.mmplanbill.process.model.BomChildAppModel;
 import nc.ui.so.qs.mmplanbill.process.model.QsVOBillListPanelValueSetter;
 import nc.ui.uif2.IExceptionHandler;
+import nc.ui.uif2.UIState;
 import nc.ui.uif2.editor.BillListView;
 import nc.ui.uif2.editor.BillListView.VOBillListPanelValueSetter;
 import nc.vo.pub.AggregatedValueObject;
@@ -30,6 +32,8 @@ import nc.vo.pub.BusinessException;
 import nc.vo.pub.CircularlyAccessibleValueObject;
 import nc.vo.pub.ExtendedAggregatedValueObject;
 import nc.vo.pub.SuperVO;
+import nc.vo.pub.lang.UFBoolean;
+import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 import nc.vo.trade.pub.IExAggVO;
 
 public class BOMVersionListView extends ShowUpableBillListView implements ListSelectionListener{
@@ -39,7 +43,6 @@ public class BOMVersionListView extends ShowUpableBillListView implements ListSe
 	private Boolean IsChange;
 	private BomChildAppModel BomModel;
 	private IPlanBillSerive PlanService;
-	private IExceptionHandler exceptionHandler;
 	private nc.ui.uif2.editor.BillForm card;
 	private Boolean IsFrist;
 	
@@ -52,12 +55,6 @@ public class BOMVersionListView extends ShowUpableBillListView implements ListSe
 		this.card = card;
 	}
 
-	public IExceptionHandler getExceptionHandler() {
-		if (this.exceptionHandler == null) {
-			this.exceptionHandler = new nc.ui.uif2.DefaultExceptionHanler();
-		}
-		return this.exceptionHandler;
-	}
 	
 	public IPlanBillSerive getPlanService() {
 		
@@ -96,12 +93,28 @@ public class BOMVersionListView extends ShowUpableBillListView implements ListSe
 			public void hyperlink(BillItemHyperlinkEvent event) {
 				// TODO 自动生成的方法存根
 				
-				String bomid = (String) getBillListPanel().getParentListPanel().getTableModel().getValueAt(event.getRow(), "cbomid");
-				String bomversion=(String) getBillListPanel().getParentListPanel().getTableModel().getValueAt(event.getRow(), "BomVersion");
-				
-				BOMVersionListView.this.getCard().getBillCardPanel().getHeadItem("bomid").setValue(bomid);
-				BOMVersionListView.this.getCard().getBillCardPanel().getHeadItem("vbomversion").setValue(bomversion);
-
+				if(UIState.EDIT.equals(BOMVersionListView.this.getCard().getModel().getUiState())){
+					
+					UFBoolean sfexec=new UFBoolean(BOMVersionListView.this.getCard().getBillCardPanel().getHeadItem("sfexand").getValue());
+					
+					if(UFBoolean.TRUE.equals(sfexec)){
+						
+						MessageDialog.showErrorDlg(BOMVersionListView.this, "错误", "生产调度单已经执行展开，不能选择！");
+						
+					}else{
+						
+						String bomid = (String) getBillListPanel().getParentListPanel().getTableModel().getValueAt(event.getRow(), "cbomid");
+						String bomversion=(String) getBillListPanel().getParentListPanel().getTableModel().getValueAt(event.getRow(), "BomVersion");
+						
+						BOMVersionListView.this.getCard().getBillCardPanel().getHeadItem("bomid").setValue(bomid);
+						BOMVersionListView.this.getCard().getBillCardPanel().getHeadItem("vbomversion").setValue(bomversion);
+						
+					}
+					
+			
+				}else{
+					MessageDialog.showErrorDlg(BOMVersionListView.this, "错误", "生产调度单不为【修改】状态，不能选择！");
+				}
 			}
 			
 		});
@@ -168,7 +181,7 @@ public class BOMVersionListView extends ShowUpableBillListView implements ListSe
 					 try{
 						 SetBomChildInfo(headRow);
 					 }catch(Exception ex){
-						 getExceptionHandler().handlerExeption(ex);
+						 ExceptionUtils.wrappException(ex);
 					 }
 					 
 				 }

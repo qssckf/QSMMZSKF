@@ -1,10 +1,15 @@
 package nc.ui.so.qs.mmplanbill.service;
 
+import java.util.Collection;
+
 import nc.bs.framework.common.NCLocator;
 import nc.itf.so.qs.bill.service.IAppModelServiceEx;
 import nc.itf.so.qs.sc.planbill.service.IPlanBillSerive;
+import nc.md.persist.framework.IMDPersistenceQueryService;
+import nc.md.persist.framework.MDPersistenceService;
 import nc.vo.bd.pub.sqlutil.BDSqlInUtil;
 import nc.vo.pub.BusinessException;
+import nc.vo.so.qs.sc.MmPlanBillVO;
 import nc.vo.uif2.LoginContext;
 
 public class PlanBillAppModelService implements IAppModelServiceEx {
@@ -19,21 +24,30 @@ public class PlanBillAppModelService implements IAppModelServiceEx {
 		
 		return planbillservice;
 	}
+	
+	public static IMDPersistenceQueryService getMDQueryService(){
+		
+		return MDPersistenceService.lookupPersistenceQueryService();
+		
+	}
 
 	@Override
-	public Object insert(Object paramObject) throws Exception {
+	public Object insert(Object objs) throws Exception {
+		// TODO 自动生成的方法存根
+	
+		return null;
+		
+		
+	}
+
+	@Override
+	public Object update(Object objs) throws Exception {
 		// TODO 自动生成的方法存根
 		return null;
 	}
 
 	@Override
-	public Object update(Object paramObject) throws Exception {
-		// TODO 自动生成的方法存根
-		return null;
-	}
-
-	@Override
-	public void delete(Object paramObject) throws Exception {
+	public void delete(Object objs) throws Exception {
 		// TODO 自动生成的方法存根
 		
 	}

@@ -134,6 +134,7 @@ public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefr
 		pks = queryByCon(queryscheme.getWhereSQLOnly());
 		setDriverVOPKsTOPaginationModel(pks);
 		
+
 		
 	}
 
@@ -281,6 +282,12 @@ public class PlanBillDataManager implements IAppModelDataManagerEx,IQueryAndRefr
 		String[] pks=null;
 		pks = queryByCon(queryscheme.getWhereSQLOnly());
 		setDriverVOPKsTOPaginationModel(pks);
+		
+		if ((pks == null) || (pks.length == 0)) {
+			ShowStatusBarMsgUtil.showStatusBarMsg(IShowMsgConstant.getQueryNullInfo(), getModel().getContext());
+		}else{
+			ShowStatusBarMsgUtil.showStatusBarMsg(IShowMsgConstant.getQuerySuccessInfo(pks.length), getModel().getContext());
+		}
 	}
 
 }

@@ -15,10 +15,13 @@ public class PlanBillQueryActions extends DefaultQueryAction{
 		
 		this.setBtnName("查询生产调度信息");
 		this.putValue("AcceleratorKey", KeyStroke.getKeyStroke((int)'P', Event.ALT_MASK));
-		this.putValue(Action.SHORT_DESCRIPTION, "查询_生产调度信息 (CTRL+M)");
+		this.putValue(Action.SHORT_DESCRIPTION, "查询_生产调度信息 (ALT+P)");
+		
+	}
 
-		
-		
+	@Override
+	protected void showQueryInfo() {
+		// TODO 自动生成的方法存根
 	}
 	
 	

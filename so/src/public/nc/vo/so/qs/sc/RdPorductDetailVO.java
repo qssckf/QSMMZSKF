@@ -5,6 +5,7 @@
 package nc.vo.so.qs.sc;
 	
 import nc.vo.pub.*;
+import nc.vo.so.qs.util.IQLock;
 
 /**
  * <b> 在此处简要描述此类的功能 </b>
@@ -16,7 +17,7 @@ import nc.vo.pub.*;
  * @version NCPrj ??
  */
 @SuppressWarnings("serial")
-public class RdPorductDetailVO extends SuperVO {
+public class RdPorductDetailVO extends SuperVO implements IQLock {
 	private java.lang.String pk_rdpd;
 	private java.lang.String vsrcplanbid;
 	private java.lang.String vsrcplanid;
@@ -82,7 +83,14 @@ public class RdPorductDetailVO extends SuperVO {
 	private java.lang.String vfree10;
 	private java.lang.String pk_customer;
 	private java.lang.String endcustomer;
+	private java.lang.String unit;
+	private java.lang.String qunit;
+	private java.lang.String rate;
+	private java.lang.Integer billstatus;
 	private java.lang.Integer dr = 0;
+	private java.lang.String processer;
+
+
 	private nc.vo.pub.lang.UFDateTime ts;
 
 	public static final String PK_RDPD = "pk_rdpd";
@@ -150,6 +158,11 @@ public class RdPorductDetailVO extends SuperVO {
 	public static final String VFREE10 = "vfree10";
 	public static final String PK_CUSTOMER = "pk_customer";
 	public static final String ENDCUSTOMER = "endcustomer";
+	public static final String UNIT = "unit";
+	public static final String QUNIT = "qunit";
+	public static final String RATE = "rate";
+	public static final String BILLSTATUS="billstatus";
+	public static final String PROCESSER="processer";
 			
 	/**
 	 * 属性pk_rdpd的Getter方法.属性名：主键
@@ -262,7 +275,14 @@ public class RdPorductDetailVO extends SuperVO {
 	 */
 	public void setPk_org_v (java.lang.String newPk_org_v ) {
 	 	this.pk_org_v = newPk_org_v;
-	} 	  
+	} 	
+	
+	public java.lang.String getProcesser() {
+		return processer;
+	}
+	public void setProcesser(java.lang.String processer) {
+		this.processer = processer;
+	}
 	/**
 	 * 属性def1的Getter方法.属性名：自定义项1
 	 * 创建日期:
@@ -1250,9 +1270,37 @@ public class RdPorductDetailVO extends SuperVO {
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
+	
+	public java.lang.String getUnit() {
+		return unit;
+	}
+	public void setUnit(java.lang.String unit) {
+		this.unit = unit;
+	}
+	public java.lang.String getQunit() {
+		return qunit;
+	}
+	public void setQunit(java.lang.String qunit) {
+		this.qunit = qunit;
+	}
+	public java.lang.String getRate() {
+		return rate;
+	}
+	public void setRate(java.lang.String rate) {
+		this.rate = rate;
+	}
+	
 	public java.lang.String getTableName() {
 		return "so_rdpd";
-	}    
+	}   
+	
+	public java.lang.Integer getBillstatus() {
+		return billstatus;
+	}
+	public void setBillstatus(java.lang.Integer billstatus) {
+		this.billstatus = billstatus;
+	}
+
 	
 	/**
 	 * <p>返回表名称.
@@ -1277,6 +1325,18 @@ public class RdPorductDetailVO extends SuperVO {
 	public IVOMeta getMetaData() {
    		return null;
   	}
+	@Override
+	public String getMainLockKey() {
+		// TODO 自动生成的方法存根
+		return this.getVsrcplanid();
+	}
+	@Override
+	public String getChillLockKey() {
+		// TODO 自动生成的方法存根
+		
+		return this.getVsrcplanid()+"|"+this.getVsrcplanbid();
+		
+	}
 } 
 
 

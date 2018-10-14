@@ -9,6 +9,7 @@ import nc.ui.uif2.IExceptionHandler;
 import nc.ui.uif2.IFuncNodeInitDataListener;
 import nc.vo.pub.BusinessException;
 import nc.vo.pub.SuperVO;
+import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 import nc.vo.so.qs.sc.MmPlanBillVO;
 
 public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListener {
@@ -16,7 +17,6 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 	private PlanBillAppModel PlanModel;
 	private BomVerAppModel BomModel;
 	IDefaultInitDataProcessor processor = null;
-	private IExceptionHandler exceptionHandler;
 	private IPlanBillSerive PlanService;
 	
 	public IPlanBillSerive getPlanService() {
@@ -71,7 +71,7 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 				processor.process(funinitdata);
 				
 			}catch(Exception e){
-				getExceptionHandler().handlerExeption(e);
+				ExceptionUtils.wrappException(e);
 			}
 			
 			
@@ -79,13 +79,6 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 		
 		
 
-	}
-	
-	public IExceptionHandler getExceptionHandler() {
-		if (this.exceptionHandler == null) {
-			this.exceptionHandler = new nc.ui.uif2.DefaultExceptionHanler();
-		}
-		return this.exceptionHandler;
 	}
 	
 	private IDefaultInitDataProcessor getDefaultProcessor() {
@@ -109,7 +102,7 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 				String pk_org=vo.getPk_org();
 				
 				
-				
+				((PlanBillAppModel)PlanBillProcessInitDataListener.this.getPlanModel()).initModelByPara(initdata);
 				
 				
 				PlanBillProcessInitDataListener.this.getPlanModel().getContext().setPk_org(pk_org);
@@ -118,7 +111,9 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 				PlanBillProcessInitDataListener.this.getPlanModel().initModel(vo);
 				
 				if(initdata.getEdited()){
+					
 					PlanBillProcessInitDataListener.this.getPlanModel().setAppUiState(AppUiState.EDIT);
+		
 				}else{
 					PlanBillProcessInitDataListener.this.getPlanModel().setAppUiState(AppUiState.NOT_EDIT);
 				}
@@ -140,7 +135,7 @@ public class PlanBillProcessInitDataListener implements IFuncNodeInitDataListene
 				
 			} catch (BusinessException e) {
 				// TODO 自动生成的 catch 块
-				PlanBillProcessInitDataListener.this.getExceptionHandler().handlerExeption(e);
+				ExceptionUtils.wrappException(e);
 			}
 			
 
