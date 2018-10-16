@@ -9,7 +9,7 @@ public class PlanBillProcessHeadBeforeEdit implements IAppEventHandler<CardHeadT
 	public void handleAppEvent(CardHeadTailBeforeEditEvent event) {
 		// TODO 自动生成的方法存根
 		
-		if("vfree1".equals(event)){
+		if("vfree1".equals(event.getKey()) || "vfree2".equals(event.getKey()) || "vfree3".equals(event.getKey())){
 			event.setReturnValue(false);
 			return;
 		}

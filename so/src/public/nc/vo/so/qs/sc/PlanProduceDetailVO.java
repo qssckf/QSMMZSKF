@@ -82,6 +82,7 @@ public class PlanProduceDetailVO extends SuperVO {
 	private nc.vo.pub.lang.UFDouble length;
 	private java.lang.String pk_customer;
 	private java.lang.String endcustomer;
+	private java.lang.String bomid;
 	private java.lang.Integer dr = 0;
 	private nc.vo.pub.lang.UFDateTime ts;
 
@@ -150,6 +151,7 @@ public class PlanProduceDetailVO extends SuperVO {
 	public static final String LENGTH = "length";
 	public static final String PK_CUSTOMER = "pk_customer";
 	public static final String ENDCUSTOMER = "endcustomer";
+	public static final String BOMID="bomid";
 			
 	/**
 	 * 属性pk_planbill_b的Getter方法.属性名：主键
@@ -1222,7 +1224,14 @@ public class PlanProduceDetailVO extends SuperVO {
 	 */
 	public void setTs (nc.vo.pub.lang.UFDateTime newTs ) {
 	 	this.ts = newTs;
-	} 	  
+	} 
+	
+	public java.lang.String getBomid() {
+		return bomid;
+	}
+	public void setBomid(java.lang.String bomid) {
+		this.bomid = bomid;
+	}
  
 	/**
 	  * <p>取得父VO主键字段.

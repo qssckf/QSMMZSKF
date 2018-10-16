@@ -1,6 +1,7 @@
 package nc.vo.so.qs.sc.planbill.process;
 
 import java.lang.reflect.Method;
+import java.util.Comparator;
 
 import org.apache.commons.beanutils.Converter;
 
@@ -12,20 +13,72 @@ import nc.vo.pub.SuperVO;
 import nc.vo.pub.lang.UFDouble;
 
 @SuppressWarnings("serial")
-public class BomChVO extends SuperVO implements IAppendableVO{
+public class BomChVO extends SuperVO implements IAppendableVO,Comparable<Object>{
 	
 	private java.lang.String pk_materail;
 	private java.lang.String parentmatcode;
 	private java.lang.String parentmatname;
+	private java.lang.String c_materail;
 	private java.lang.String matercode;
 	private java.lang.String matername;
 	private java.lang.String materspec;
 	private java.lang.String matertype;
 	private java.lang.String munit;
+	private java.lang.String munitid;
+	private java.lang.String qunitid;
 	private UFDouble itemnum;
 	private java.lang.String cbomversion;
 	private java.lang.String itemmemo;
+	private Integer bomlevel;
+	private java.lang.String kz;
+	private java.lang.String ys;
+	private java.lang.String rate;
 	
+	public java.lang.String getRate() {
+		return rate;
+	}
+	public void setRate(java.lang.String rate) {
+		this.rate = rate;
+	}
+	public java.lang.String getKz() {
+		return kz;
+	}
+	public void setKz(java.lang.String kz) {
+		this.kz = kz;
+	}
+	public java.lang.String getYs() {
+		return ys;
+	}
+	public void setYs(java.lang.String ys) {
+		this.ys = ys;
+	}
+	public java.lang.String getMunitid() {
+		return munitid;
+	}
+	public void setMunitid(java.lang.String munitid) {
+		this.munitid = munitid;
+	}
+	public java.lang.String getQunitid() {
+		return qunitid;
+	}
+	public void setQunitid(java.lang.String qunitid) {
+		this.qunitid = qunitid;
+	}
+	
+	public java.lang.String getC_materail() {
+		return c_materail;
+	}
+	public void setC_materail(java.lang.String c_materail) {
+		this.c_materail = c_materail;
+	}
+
+	
+	public Integer getBomlevel() {
+		return bomlevel;
+	}
+	public void setBomlevel(Integer bomlevel) {
+		this.bomlevel = bomlevel;
+	}
 	public java.lang.String getPk_materail() {
 		return pk_materail;
 	}
@@ -113,6 +166,20 @@ public class BomChVO extends SuperVO implements IAppendableVO{
 		
 		super.setAttributeValue(name, value);
 	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO 自动生成的方法存根
+		if (this.bomlevel == null) {
+			return -1;
+		}
+		if (((BomChVO)o).bomlevel == null) {
+			return 1;
+		}
+		return Integer.valueOf(this.bomlevel).intValue() > Integer.valueOf(((BomChVO)o).bomlevel).intValue() ? 1 : -1;
+		
+		
+	}
+
 	
 
 }

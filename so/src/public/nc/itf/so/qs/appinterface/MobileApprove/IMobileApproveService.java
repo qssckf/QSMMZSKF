@@ -32,4 +32,22 @@ public interface IMobileApproveService {
 	
 	public List<Map<String, Object>> getRefDataList(String pk_group,String cond,String voclass,String entityname,String field,int startline, int count,int pagenum) throws BusinessException;
 	
+	public abstract List<Map<String, Object>> getBillList(String pk_group, String userid, String date, String statuskey, String statuscode, String cond,int startline, int pagenum,int count) throws BusinessException;
+
+	public abstract Map<String, Object> getBillCardInfo(String pk_group, String userid, String billid, String billtype,String statuskey, String statuscode) throws BusinessException;
+	
+	public Map<String,Object> PreOrderSave(String pk_group,String userid,JSONObject prejson,String billstatus) throws BusinessException;
+
+	public List<Map<String, Object>> queryBomVerInfo(String pk_group,String user, String mat,String pk_org, int startline, int count, int pagenum) throws BusinessException;
+	
+	public List<Map<String, Object>> queryBomChInfo(String pk_group,String user, String bomid,String pk_org, int startline, int count, int pagenum) throws BusinessException;
+
+	public Map<String, Object> queryHfPrice(String pk_group,String user,String pk_org,String mat,String bomid,String pk_cus,double num) throws BusinessException;
+	
+	public Map<String, Object> PreOrderDelete(String pk_group, String userid,String bid) throws BusinessException;
+	
+	public Map<String, Object> PreOrderApprove(String pk_group, String userid,String bid) throws BusinessException;
+	
+	
 }
+

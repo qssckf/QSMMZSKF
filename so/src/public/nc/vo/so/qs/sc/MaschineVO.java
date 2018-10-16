@@ -4,6 +4,13 @@
 \***************************************************************/
 package nc.vo.so.qs.sc;
 	
+import java.lang.reflect.Method;
+
+import org.apache.commons.beanutils.Converter;
+
+import nc.jdbc.framework.util.BeanConvertor;
+import nc.jdbc.framework.util.StringConvertor;
+import nc.vo.hr.append.IAppendableVO;
 import nc.vo.pub.*;
 import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
 
@@ -17,7 +24,7 @@ import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
  * @version NCPrj ??
  */
 @SuppressWarnings("serial")
-public class MaschineVO extends SuperVO {
+public class MaschineVO extends SuperVO implements IAppendableVO{
 	private java.lang.String pk_maschine;
 	private java.lang.String pk_group;
 	private java.lang.String pk_org;
@@ -1009,6 +1016,29 @@ public class MaschineVO extends SuperVO {
 		IVOMeta meta = VOMetaFactory.getInstance().getVOMeta("so.MaschineVO");
    		return meta;
   	}
+	
+	
+	public void setAttributeValue(String name, Object value) {
+		// TODO 自动生成的方法存根
+		
+		String attributeName = name.toLowerCase();
+		Method method = BeanHelper.getMethod(this, attributeName);
+		if (method != null)
+		{
+			Converter converter = BeanConvertor.getConVerter(method.getParameterTypes()[0]);
+			if ((converter != null) && (value != null))
+			{
+				if (!(converter instanceof StringConvertor)) {
+					value = converter.convert(method.getParameterTypes()[0], value);
+				}
+			}
+			
+			super.setAttributeValue(attributeName, value);
+			}
+		
+		super.setAttributeValue(name, value);
+	}
+	
 } 
 
 
