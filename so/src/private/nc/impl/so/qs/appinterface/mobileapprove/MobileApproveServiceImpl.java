@@ -805,7 +805,7 @@ public class MobileApproveServiceImpl implements IMobileApproveService {
 
 
 	@Override
-	public List<Map<String, Object>> getBillList(String pk_group,String userid, String date, String statuskey, String statuscode,String cond, int startline, int pagenum, int count) throws BusinessException {
+	public List<Map<String, Object>> getBillList(String pk_group,String userid, String date, String statuskey, String statuscode,String cond, int startline, int count, int pagenum) throws BusinessException {
 		// TODO 自动生成的方法存根
 		
 		if(InvocationInfoProxy.getInstance().getGroupId()==null){
@@ -869,7 +869,7 @@ public class MobileApproveServiceImpl implements IMobileApproveService {
 		
 		PFlowContext pfcontext=new PFlowContext();
 		  
-		pfcontext.setActionName("SAVEBASE");
+		pfcontext.setActionName("WRITE");
 		
 		pfcontext.setBillType("38");
 		
@@ -1217,7 +1217,7 @@ public class MobileApproveServiceImpl implements IMobileApproveService {
 			}
 			
 			prevo.setParentVO(parent);
-			prevo.setChildrenVO(bodys.toArray(new CircularlyAccessibleValueObject[bodys.size()]));
+			prevo.setChildren(PreOrderBVO.class, bodys.toArray(new PreOrderBVO[bodys.size()]));
 			
 			
 			return prevo;
