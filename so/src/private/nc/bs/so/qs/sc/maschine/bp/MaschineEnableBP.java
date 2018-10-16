@@ -5,10 +5,10 @@ package nc.bs.so.qs.sc.maschine.bp;
 //import nc.bs.so.xlx.tran.tranflow.ace.bp.rule.BillVOSetValue;
 //import nc.bs.so.xlx.tran.tranflow.ace.bp.rule.TranFlowBusLockRule;
 //import nc.bs.so.xlx.tran.tranflow.plugin.bpplugin.TranFlowPluginPoint;
-import nc.bs.so.qs.sc.maschine.ace.bp.rule.BillCheckVOConsistence;
-import nc.bs.so.qs.sc.maschine.ace.bp.rule.BillSetDefaultValueRule;
-import nc.bs.so.qs.sc.maschine.ace.bp.rule.BillVOSetValue;
-import nc.bs.so.qs.sc.maschine.ace.bp.rule.MaschineFlowBusLockRule;
+import nc.bs.so.qs.sc.maschine.bp.rule.BillCheckVOConsistence;
+import nc.bs.so.qs.sc.maschine.bp.rule.BillSetEnableValueRule;
+import nc.bs.so.qs.sc.maschine.bp.rule.BillVOSetValue;
+import nc.bs.so.qs.sc.maschine.bp.rule.MaschineFlowBusLockRule;
 import nc.bs.so.qs.sc.maschine.plugin.bpplugin.MaschinePluginPoint;
 import nc.impl.pubapp.pattern.data.bill.template.UpdateBPTemplate;
 import nc.impl.pubapp.pattern.rule.processer.CompareAroundProcesser;
@@ -48,11 +48,11 @@ public class MaschineEnableBP {
 		
 		Processer.addBeforeRule(new BillCheckVOConsistence());
 		
-		Processer.addBeforeRule(new BillSetDefaultValueRule());
+		Processer.addBeforeRule(new BillSetEnableValueRule());
 		
 		BillVOSetValue bs=new BillVOSetValue();
 		
-		bs.setHeadField(new String[]{"mmstatus"});
+		bs.setHeadField(new String[]{"mstatus"});
 		
 		bs.setHeadValue(new String[]{"1"});
 		

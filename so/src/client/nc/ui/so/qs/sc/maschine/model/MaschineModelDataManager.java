@@ -1,25 +1,37 @@
 package nc.ui.so.qs.sc.maschine.model;
 /*    */ 
-/*    */ import nc.ui.ml.NCLangRes;
+/*    */ import nc.md.persist.framework.IMDPersistenceQueryService;
+import nc.md.persist.framework.MDPersistenceService;
+import nc.ui.ml.NCLangRes;
+import nc.ui.pubapp.uif2app.actions.pagination.BillModelPaginationDelegator;
 /*    */ import nc.ui.querytemplate.filter.IFilter;
 /*    */ import nc.ui.querytemplate.querytree.IQueryScheme;
 /*    */ import nc.ui.querytemplate.value.IFieldValue;
+//import nc.ui.scmpub.page.model.IBillPageQuery;
 /*    */ import nc.ui.uif2.IShowMsgConstant;
 /*    */ import nc.ui.uif2.ShowStatusBarMsgUtil;
 /*    */ import nc.ui.uif2.model.AbstractUIAppModel;
 /*    */ import nc.ui.uif2.model.ModelDataDescriptor;
+import nc.ui.uif2.tangramlayout.CardLayoutToolbarPanel;
 /*    */ import nc.vo.ml.AbstractNCLangRes;
 ///*    */ import nc.vo.pd.pd0404.entity.AggWkVO;
 ///*    */ import nc.vo.pd.pd0404.entity.WkVO;
 /*    */ import nc.vo.pub.lang.UFDouble;
 /*    */ import nc.vo.pubapp.res.Variable;
+//import nc.vo.scmpub.page.PageQueryVO;
 		import nc.vo.so.qs.sc.AggMaschineVO;
-		import nc.vo.so.qs.sc.MaschineVO;
+import nc.vo.so.qs.sc.MaschineVO;
+import nc.ui.uif2.components.pagination.PaginationModel;
+
 //		import nc.vo.uif2.LoginContext;
 /*    */ 
 /*    */ public class MaschineModelDataManager extends nc.ui.pubapp.uif2app.query2.model.ModelDataManager
 /*    */ {
 /*    */   public MaschineModelDataManager() {}
+
+			private BillModelPaginationDelegator pageDelegator;
+//			private IBillPageQuery pageQuery;
+			private CardLayoutToolbarPanel pagePanel;
 /*    */   
 /*    */   public void initModelByQueryScheme(IQueryScheme qryScheme)
 /*    */   {
@@ -98,4 +110,33 @@ package nc.ui.so.qs.sc.maschine.model;
 /*    */     
 /* 97 */     return pk_org;
 /*    */   }
-/*    */ }
+/*    */
+//		public IBillPageQuery getPageQuery() {
+//			return pageQuery;
+//		}
+//		public void setPageQuery(IBillPageQuery pageQuery) {
+//			this.pageQuery = pageQuery;
+//		}
+//		public CardLayoutToolbarPanel getPagePanel() {
+//			return pagePanel;
+//		}
+//		public void setPagePanel(CardLayoutToolbarPanel pagePanel) {
+//			this.pagePanel = pagePanel;
+//		}
+//		private PageQueryVO query(IQueryScheme scheme){
+//			
+//			PaginationModel pageModel = this.pageDelegator.getPaginationModel();
+//			
+//			int recordInPage = pageModel.getPageSize();
+//			
+//			scheme.put("recordInPage", Integer.valueOf(recordInPage));
+//			
+//			int max = -1;
+//			
+//			scheme.put("max_query_count_constant", Integer.valueOf(max));
+//			
+//			return this.getPageQuery().query(scheme);
+//			
+//		}
+
+}
