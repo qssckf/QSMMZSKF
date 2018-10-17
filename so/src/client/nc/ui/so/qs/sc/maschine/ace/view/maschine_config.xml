@@ -465,8 +465,7 @@
 		<!-- 	<ref bean="actQueryAction" />  -->
 				<bean class="nc.funcnode.ui.action.SeparatorAction" />
 				<ref bean="printMenuAction" />
-		<!--		<ref bean="enableAction" /> -->
-				<ref bean="enableGroupAction" /> 
+		<!--		<ref bean="enableGroupAction" /> -->
 			</list>
 		</property>
 		<property name="editActions">
@@ -512,7 +511,7 @@
 		</property>
 	</bean>
 	<!-- 删除按钮-->
-	<bean id="deleteAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineDeleteAction">
+	<bean id="deleteAction" class="nc.ui.pubapp.uif2app.actions.DeleteAction">
 		<property name="model" ref="manageAppModel" />
 		<property name="singleBillService" ref="deleteProxy" />
 <!--		<property name="singleBillView" ref="billFormEditor" />-->
@@ -536,7 +535,7 @@
 			</bean>
 		</property>
 		<property name="copyActionProcessor">
-			<bean class="nc.ui.so.qs.sc.maschine.actions.MaschineCopyActionProcessor">
+			<bean class="nc.ui.so.qs.sc.maschine.actions.process.MaschineCopyActionProcessor">
 				<property name="editor" ref="billFormEditor" />
 			</bean>
 		</property>
@@ -573,7 +572,7 @@
 	</bean>
 	<!-- 编辑时的卡片自动切换 -->
 	<bean id="ShowUpComponentInterceptorBean"
-		class="nc.ui.so.qs.sc.maschine.actions.interceptor.MaschineCardShowUpComponentInterceptor">
+		class="nc.ui.pubapp.uif2app.actions.interceptor.ShowUpComponentInterceptor">
 		<property name="showUpComponent" ref="billFormEditor" />
 	</bean>
 	<bean id="printMenuAction" class="nc.funcnode.ui.action.GroupAction">
@@ -604,60 +603,63 @@
 		<property name="code" value="EnableGroup" />
 		<property name="actions">
 			<list>
-				<ref bean="enableAction" />
 				<ref bean="unenableAction" />
+				<ref bean="enableAction" />
  				<ref bean="disableAction" />
 			</list>
 		</property>
 	</bean>
-
+	
+	<!-- 取消启用action -->
+	<bean id="unenableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineUnEnableAction">
+		<property name="model" ref="manageAppModel" />
+		<property name="editor" ref="billFormEditor" />
+		<property name="service" ref="maintainProxy" />
+	</bean>
+		
 	<!-- 启用action -->
 	<bean id="enableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineEnableAction">
 		<property name="model" ref="manageAppModel" />
-		<property name="dataManager" ref="modelDataManager" />
-	</bean>
-		
-	<!-- 取消启用action -->
-	<bean id="unenableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineUnenableAction">
-		<property name="model" ref="manageAppModel" />
-		<property name="dataManager" ref="modelDataManager" />
+		<property name="editor" ref="billFormEditor" />
+		<property name="service" ref="maintainProxy" />
 	</bean>
 	
 	<!-- 停用action -->
 	<bean id="disableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineDisableAction">
 		<property name="model" ref="manageAppModel" />
-		<property name="dataManager" ref="modelDataManager" />
-	</bean> 
+		<property name="editor" ref="billFormEditor" />
+		<property name="service" ref="maintainProxy" />
+	</bean>
 	
 	<!-- 列表下启用/停用按钮 -->
-	<!--<bean id="list_enableGroupAction" class="nc.funcnode.ui.action.GroupAction"> -->
-	<!--    <property name="actions"> -->
-	<!--        <list> -->
-	<!--       	<ref bean="list_unenableAction" /> -->
-	<!--            <ref bean="list_enableAction"/> -->
-	<!--            <ref bean="list_disableAction"/> -->
-	<!--        </list> -->
-	<!--   </property> -->
-	<!--</bean> -->
+	<bean id="list_enableGroupAction" class="nc.funcnode.ui.action.GroupAction">
+	    <property name="actions">
+	        <list>
+	        	<ref bean="list_unenableAction" />
+	            <ref bean="list_enableAction"/>
+	            <ref bean="list_disableAction"/>
+	        </list>
+	    </property>
+	</bean>
 	
-	<!--<bean id="list_unenableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchUnEnableAction"> -->
-	<!--    <property name="model" ref="manageAppModel"/> -->
-	<!--    <property name="editor" ref="billFormEditor" /> -->
-	<!--    <property name="service" ref="maintainProxy" /> -->
-	<!--</bean> -->
+	<bean id="list_unenableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchUnEnableAction">
+	    <property name="model" ref="manageAppModel"/>
+	    <property name="editor" ref="billFormEditor" />
+	    <property name="service" ref="maintainProxy" />
+	</bean>
 	
 	
-	<!--<bean id="list_enableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchEnableAction"> -->
-	<!--    <property name="model" ref="manageAppModel"/> -->
-	<!--    <property name="editor" ref="billFormEditor" /> -->
-	<!--    <property name="service" ref="maintainProxy" /> -->
-	<!--</bean> -->
+	<bean id="list_enableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchEnableAction">
+	    <property name="model" ref="manageAppModel"/>
+	    <property name="editor" ref="billFormEditor" />
+	    <property name="service" ref="maintainProxy" />
+	</bean>
 	
-	<!--<bean id="list_disableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchDisableAction"> -->
-	<!--    <property name="model" ref="manageAppModel"/> -->
-	<!--    <property name="editor" ref="billFormEditor" /> -->
-	<!--   <property name="service" ref="maintainProxy" /> -->
-	<!--</bean> -->
+	<bean id="list_disableAction" class="nc.ui.so.qs.sc.maschine.actions.MaschineBatchDisableAction">
+	    <property name="model" ref="manageAppModel"/>
+	    <property name="editor" ref="billFormEditor" />
+	    <property name="service" ref="maintainProxy" />
+	</bean>
 	
 	<!-- 预览按钮 -->
 	<bean id="previewAction" class="nc.ui.pubapp.uif2app.actions.MetaDataBasedPrintAction">

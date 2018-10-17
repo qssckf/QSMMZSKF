@@ -4,6 +4,15 @@ import java.util.Arrays;
 
 import nc.bs.bd.baseservice.DefaultGetBizInfoByMDUtil;
 import nc.bs.bd.baseservice.IGetBizInfoUtil;
+import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
+import nc.bs.bd.bp.rule.BDUniqueRule;
+import nc.bs.bd.bp.rule.BizLockRule;
+import nc.bs.bd.bp.rule.NotNullValueRule;
+import nc.bs.bd.bp.rule.NotifyVersionChangeWhenDataUpdatedRule;
+import nc.bs.bd.bp.rule.StringFieldTrimRule;
+import nc.bs.bd.bp.rule.update.FireUpdateEventRule;
+import nc.bs.bd.bp.rule.update.UpdateAuditInfoRule;
+import nc.bs.bd.bp.rule.update.WriteUpdateBusiLogRule;
 //import nc.bs.pd.pd0404.plugin.bpplugin.PDWkPluginPoint;
 //import nc.bs.pd.pd0404.rule.PDWkHeadBiggerThanZeroRule;
 //import nc.bs.pd.pd0404.rule.PDWkHeadNotNullRule;
@@ -24,9 +33,6 @@ import nc.bs.pubapp.pub.rule.FieldLengthCheckRule;
 import nc.bs.pubapp.pub.rule.FillUpdateDataRule;
 import nc.bs.pubapp.pub.rule.OrgDisabledCheckRule;
 import nc.bs.so.qs.sc.maschine.plugin.bpplugin.MaschinePluginPoint;
-import nc.bs.so.qs.sc.maschine.rule.MaschineHeadNotNullRule;
-import nc.bs.so.qs.sc.maschine.rule.MaschineUpdateAfterEventRule;
-import nc.bs.so.qs.sc.maschine.rule.MaschineUpdateBeforeEventRule;
 import nc.impl.pubapp.bd.userdef.UserDefSaveRule;
 import nc.impl.pubapp.pattern.data.bill.template.UpdateBPTemplate;
 import nc.impl.pubapp.pattern.rule.IRule;
@@ -79,8 +85,8 @@ public class MaschineUpdateBP
 
   private void addBeforeRule(CompareAroundProcesser<AggMaschineVO> processer)
   {
-    IRule<AggMaschineVO> orgdisabled = new OrgDisabledCheckRule();
-    processer.addBeforeRule(orgdisabled);
+//    IRule<AggMaschineVO> orgdisabled = new OrgDisabledCheckRule();
+//    processer.addBeforeRule(orgdisabled);
 //    
 //    IRule<AggMaschineVO> fieldLengthCheckRule = new FieldLengthCheckRule();
 //    processer.addBeforeRule(fieldLengthCheckRule);
@@ -88,8 +94,8 @@ public class MaschineUpdateBP
 //    IRule<AggMaschineVO> pdWkUniqueValidationRule = new PDWkUniqueValidationRule();
 //    processer.addBeforeRule(pdWkUniqueValidationRule);
 //    
-    IRule<AggMaschineVO> aduitInfoRule = new FillUpdateDataRule();
-    processer.addBeforeRule(aduitInfoRule);
+//    IRule<AggMaschineVO> aduitInfoRule = new FillUpdateDataRule();
+//    processer.addBeforeRule(aduitInfoRule);
 //    
 //
 //
@@ -103,7 +109,7 @@ public class MaschineUpdateBP
 //    IRule<AggMaschineVO> pdWkHeadBiggerThanZeroRule = new PDWkHeadBiggerThanZeroRule();
 //    processer.addBeforeRule(pdWkHeadBiggerThanZeroRule);
 //    
-//    IRule<AggMaschineVO> pdWkHeadNotNullRule = new MaschineHeadNotNullRule();
+//    IRule<AggMaschineVO> pdWkHeadNotNullRule = new PDWkHeadNotNullRule();
 //    processer.addBeforeRule(pdWkHeadNotNullRule);
 //    
 //    IRule<AggMaschineVO> pdWkSubstItemRule = new PDWkSubstItemRule();
@@ -144,12 +150,26 @@ public class MaschineUpdateBP
 //    IRule<AggMaschineVO> defRule = new UserDefSaveRule(prefixs, voClazzs);
 //    processer.addBeforeRule(defRule);
 //    
-    IRule<AggMaschineVO> beforeventrule = new MaschineUpdateBeforeEventRule();
-    processer.addBeforeRule(beforeventrule);
+//    IRule<AggMaschineVO> beforeventrule = new PDWkUpdateBeforeEventRule();
+//    processer.addBeforeRule(beforeventrule);
 //    
 //    IRule<AggMaschineVO> rownocheckrule = new MMRowNoCheckRule();
 //    processer.addBeforeRule(rownocheckrule);
- 
+	  
+//	  processer.addBeforeRule(new StringFieldTrimRule());
+//		
+//	  processer.addBeforeRule(new BDPKLockSuperVORule());
+//		
+//	  processer.addBeforeRule(new BizLockRule());
+//		
+//	  processer.addBeforeRule(new NotNullValueRule(Arrays.asList(new String[] {  "code", "name" })));
+//		
+//	  processer.addBeforeRule(new BDUniqueRule());
+//		
+//	  processer.addBeforeRule(new UpdateAuditInfoRule());
+//		 
+//	  processer.addBeforeRule(new FireUpdateEventRule("1003")); 
+	  
   }
   
 
@@ -159,10 +179,15 @@ public class MaschineUpdateBP
 
   private void addAfterRule(CompareAroundProcesser<AggMaschineVO> processer)
   {
-    IRule<AggMaschineVO> aftereventrule = new MaschineUpdateAfterEventRule();
-    processer.addAfterRule(aftereventrule);
+//    IRule<AggMaschineVO> aftereventrule = new PDWkUpdateAfterEventRule();
+//    processer.addAfterRule(aftereventrule);
 //    IRule<AggMaschineVO> cacherule = new PDWkUpdateCacheMaintainRule();
 //    processer.addAfterRule(cacherule);
 	  
+	  processer.addAfterRule(new NotifyVersionChangeWhenDataUpdatedRule());
+		
+	  processer.addAfterRule(new FireUpdateEventRule("1004"));
+		
+	  processer.addAfterRule(new WriteUpdateBusiLogRule());
   }
 }

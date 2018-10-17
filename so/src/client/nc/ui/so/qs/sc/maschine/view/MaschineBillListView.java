@@ -113,7 +113,7 @@ import nc.vo.uif2.LoginContext;
 ///* 113 */     scaleProcess();
 /*     */     
 /*     */ 
-/*     */ 		//ап╠МобеепР
+/*     */ 
 /* 117 */     getBillListPanel().getBodyBillModel(this.wip_tableCode).sortByColumn("pk_material", true);
 /*     */   }
 /*     */   

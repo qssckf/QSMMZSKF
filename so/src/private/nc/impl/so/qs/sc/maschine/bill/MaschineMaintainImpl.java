@@ -5,14 +5,13 @@ package nc.impl.so.qs.sc.maschine.bill;
 //import nc.bs.pd.pd0404.bp.PDWkUpdateBP;
 import nc.bs.bd.bp.utils.MDQueryUtil;
 import nc.bs.bd.service.ValueObjWithErrLog;
-//import nc.bs.scmpub.page.BillPageLazyQuery;
 import nc.bs.so.qs.sc.maschine.bp.MaschineDeleteBP;
-import nc.bs.so.qs.sc.maschine.bp.MaschineDisableBP;
+import nc.bs.so.qs.sc.maschine.bp.MaschineDisableBP1;
 import nc.bs.so.qs.sc.maschine.bp.MaschineEnableBP;
+import nc.bs.so.qs.sc.maschine.bp.MaschineEnableBP1;
 import nc.bs.so.qs.sc.maschine.bp.MaschineInsertBP;
-import nc.bs.so.qs.sc.maschine.bp.MaschineUnenableBP;
+import nc.bs.so.qs.sc.maschine.bp.MaschineUnEnableBP1;
 import nc.bs.so.qs.sc.maschine.bp.MaschineUpdateBP;
-import nc.impl.pubapp.pattern.data.bill.BillLazyQuery;
 import nc.impl.pubapp.pattern.data.bill.tool.BillTransferTool;
 //import nc.itf.pd.pd0404.IPDWkMaintain;
 import nc.util.mmf.framework.base.MMValueCheck;
@@ -23,8 +22,6 @@ import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 import nc.vo.util.BDPKLockUtil;
 import nc.vo.util.BDVersionValidationUtil;
 import nc.itf.so.qs.sc.maschine.service.IMaschineMaintain;
-import nc.md.persist.framework.IMDPersistenceQueryService;
-import nc.md.persist.framework.MDPersistenceService;
 import nc.vo.so.qs.sc.AggMaschineVO;
 import nc.vo.so.qs.sc.MachineMater_Mater;
 import nc.vo.so.qs.sc.MaschineVO;
@@ -95,73 +92,76 @@ public class MaschineMaintainImpl implements IMaschineMaintain {
 		}
 
 @Override
-	public AggMaschineVO enable(AggMaschineVO obj) throws BusinessException {
+	public ValueObjWithErrLog enableMaschine(MaschineVO[] obs)throws BusinessException {
 		// TODO 自动生成的方法存根
-		
 		try{
-//			BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);			
-//
-//			AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_maschine()});
-			
-			AggMaschineVO[] old = new AggMaschineVO[]{obj};
-			
-			BillTransferTool<AggMaschineVO> transTool = new BillTransferTool(old);
-			AggMaschineVO[] oldobj = (AggMaschineVO[])transTool.getClientFullInfoBill();
-			
-			MaschineEnableBP bp=new MaschineEnableBP();
+			MaschineVO[] oldVos = (MaschineVO[])MDQueryUtil.lockValidateToRetrieveVO(obs);		
+			MaschineEnableBP1 action=new MaschineEnableBP1();	
+			return action.enable(obs, oldVos);
 		
-			return bp.enable(new AggMaschineVO[]{obj},oldobj)[0];
-		}catch (Exception e){
+		}catch(Exception e){
 			ExceptionUtils.marsh(e);
 		}
+		return null;
+	}
+@Override
+	public ValueObjWithErrLog unenableMaschine(MaschineVO[] obs) throws BusinessException {
+		// TODO 自动生成的方法存根
+		try{
+		
+			MaschineVO[] oldVos = (MaschineVO[])MDQueryUtil.lockValidateToRetrieveVO(obs);
+		
+			MaschineUnEnableBP1 action=new MaschineUnEnableBP1();
+		
+			return action.unenable(obs, oldVos);
+		}catch(Exception e){
+			ExceptionUtils.marsh(e);
+		}
+		return null;
+	}
+@Override
+	public ValueObjWithErrLog disableMaschine(MaschineVO[] obs) throws BusinessException {
+		// TODO 自动生成的方法存根
+		try{
+		
+			MaschineVO[] oldVos = (MaschineVO[])MDQueryUtil.lockValidateToRetrieveVO(obs);
+		
+			MaschineDisableBP1 action=new MaschineDisableBP1();
+		
+			return action.disable(obs, oldVos);
+		
+		}catch(Exception e){
+			ExceptionUtils.marsh(e);
+		}
+		return null;
+		}
+
+@Override
+	public AggMaschineVO enable(AggMaschineVO obj) throws BusinessException {
+		// TODO 自动生成的方法存根
+//		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
+//		
+//
+//		AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_tranflow_h()});
+//	
+//		MaschineEnableBP bp=new MaschineEnableBP();
+//	
+//		return bp.enable(new AggMaschineVO[]{obj},oldobj)[0];
 		return null;
 	}
 
 @Override
 	public AggMaschineVO unable(AggMaschineVO obj) throws BusinessException {
 		// TODO 自动生成的方法存根
-		try{
-//			BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);			
-//
-//			AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_maschine()});
-			
-			AggMaschineVO[] old = new AggMaschineVO[]{obj};
-			
-			BillTransferTool<AggMaschineVO> transTool = new BillTransferTool(old);
-			AggMaschineVO[] oldobj = (AggMaschineVO[])transTool.getClientFullInfoBill();
-			
-			MaschineUnenableBP bp=new MaschineUnenableBP();
 		
-			return bp.unenable(new AggMaschineVO[]{obj},oldobj)[0];		
-		}catch (Exception e){
-			ExceptionUtils.marsh(e);
-		}
+	
+	
 		return null;
 	}
 
 @Override
 	public AggMaschineVO disable(AggMaschineVO obj) throws BusinessException {
 		// TODO 自动生成的方法存根
-		try{
-			
-//			BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);			
-//
-//			AggMaschineVO[] oldobj=(AggMaschineVO[])query.queryPageBills(new String[]{obj.getParentVO().getPk_maschine()});
-			
-			AggMaschineVO[] old = new AggMaschineVO[]{obj};
-			
-			BillTransferTool<AggMaschineVO> transTool = new BillTransferTool(old);
-			AggMaschineVO[] oldobj = (AggMaschineVO[])transTool.getClientFullInfoBill();
-			
-			MaschineDisableBP bp=new MaschineDisableBP();
-		
-			return bp.disable(new AggMaschineVO[]{obj},oldobj)[0];			
-		}catch (Exception e){
-			ExceptionUtils.marsh(e);
-		}
 		return null;
 	} 
-	private IMDPersistenceQueryService getMDQueryService() {
-		return MDPersistenceService.lookupPersistenceQueryService();
-	}
 }

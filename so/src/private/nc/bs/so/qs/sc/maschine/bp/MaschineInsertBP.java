@@ -17,6 +17,7 @@ package nc.bs.so.qs.sc.maschine.bp;
 //import nc.bs.pd.pd0404.rule.ParallelnumRule;
 //import nc.bs.pd.pd0404.rule.WorktimeRule;
 import java.util.Arrays;
+
 import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
 import nc.bs.bd.bp.rule.BDUniqueRule;
 import nc.bs.bd.bp.rule.BizLockRule;
@@ -153,9 +154,9 @@ public class MaschineInsertBP
 //	  processer.addBeforeRule(new BizLockRule());
 //	
 //	  processer.addBeforeRule(new NotNullValueRule(Arrays.asList(new String[] { "code", "name" })));
-//	 Œ®“ª–‘÷ÿ∏¥
-//    IRule<AggMaschineVO> bduniquerule = new MaschineBDUniqueRule();
-//    processer.addBeforeRule(bduniquerule);
+//	
+    IRule<AggMaschineVO> bduniquerule = new MaschineBDUniqueRule();
+    processer.addBeforeRule(bduniquerule);
     
 //    processer.addBeforeRule(new BDUniqueRule());
 //	
