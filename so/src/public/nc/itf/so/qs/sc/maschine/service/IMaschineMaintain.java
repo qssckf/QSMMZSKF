@@ -13,14 +13,8 @@ public abstract interface IMaschineMaintain
   public abstract AggMaschineVO[] insert(AggMaschineVO[] paramArrayOfAggMaschineVO) throws BusinessException;
   
   public abstract AggMaschineVO[] update(AggMaschineVO[] paramArrayOfAggMaschineVO) throws BusinessException;
-
-  public abstract ValueObjWithErrLog enableMaschine(MaschineVO[] object) throws BusinessException;
-	
-  public abstract ValueObjWithErrLog unenableMaschine(MaschineVO[] obs) throws BusinessException;
-	
-  public abstract ValueObjWithErrLog disableMaschine(MaschineVO[] obs) throws BusinessException;
   
-  public abstract AggMaschineVO enable(AggMaschineVO obj) throws BusinessException;
+  public abstract AggMaschineVO enable(AggMaschineVO agg) throws BusinessException;
   
   public abstract AggMaschineVO unable(AggMaschineVO obj) throws BusinessException;
   

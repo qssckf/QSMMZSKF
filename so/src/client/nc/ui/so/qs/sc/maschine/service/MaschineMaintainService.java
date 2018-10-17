@@ -9,7 +9,7 @@ package nc.ui.so.qs.sc.maschine.service;
 		import nc.itf.so.qs.sc.maschine.service.IMaschineMaintain;
 		import nc.vo.so.qs.sc.AggMaschineVO;
 		import nc.bs.framework.common.NCLocator;
-		import nc.vo.so.qs.sc.MaschineVO;
+import nc.vo.so.qs.sc.MaschineVO;
 /*    */ 
 /*    */ 
 /*    */ 
@@ -37,33 +37,21 @@ package nc.ui.so.qs.sc.maschine.service;
 /* 37 */     operator.delete((AggMaschineVO[])value);
 /* 38 */     return value;
 /*    */   }
-		   public ValueObjWithErrLog enableMaschineVO(Object object) throws BusinessException {
-			   IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
-			   if(object instanceof MaschineVO[]){
-				   return operator.enableMaschine((MaschineVO[])object);
-			   }else if(object instanceof MaschineVO){
-				   return operator.enableMaschine(new MaschineVO[]{(MaschineVO)object});
-			   }
-			   return null;
-		   }
 
-		   public  ValueObjWithErrLog unenableMaschineVO(Object object) throws BusinessException{
-			   IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
-			   if(object instanceof MaschineVO[]){
-				   return operator.unenableMaschine((MaschineVO[])object);
-			   }else if(object instanceof MaschineVO){
-				   return operator.unenableMaschine(new MaschineVO[]{(MaschineVO)object});
-			   }
-			   return null;
-		   }
-
-		   public ValueObjWithErrLog disableMaschineVO(Object object) throws BusinessException{
-			   IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
-			   if(object instanceof MaschineVO[]){
-				   return operator.disableMaschine((MaschineVO[])object);
-			   }else if(object instanceof MaschineVO){
-				   return operator.disableMaschine(new MaschineVO[]{(MaschineVO)object});
-			   }
-			   return null;
-		   }
+			public IBill MaschineEnable(Object obj) throws BusinessException {
+				IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
+				AggMaschineVO vos = operator.enable((AggMaschineVO)obj);
+				return vos;
+			}
+			
+			public IBill Maschineunenable(Object obj) throws BusinessException {
+				IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
+				AggMaschineVO vos = operator.unable((AggMaschineVO)obj);
+				return vos;
+			}			
+			public IBill MaschineDisable(Object obj) throws BusinessException {
+				IMaschineMaintain operator = (IMaschineMaintain)NCLocator.getInstance().lookup(IMaschineMaintain.class);
+				AggMaschineVO vos = operator.disable((AggMaschineVO)obj);
+				return vos;
+			}
 /*    */ }

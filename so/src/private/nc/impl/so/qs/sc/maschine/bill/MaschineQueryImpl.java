@@ -4,6 +4,9 @@ package nc.impl.so.qs.sc.maschine.bill;
 /*     */ import java.util.Collection;
 /*     */ import java.util.List;
 /*     */ import nc.bs.framework.common.NCLocator;
+//import nc.bs.scmpub.page.BillPageLazyQuery;
+//import nc.bs.scmpub.tool.SchemeAppendCondition;
+//import nc.bs.scmpub.tool.SchemeFixCondition;
 /*     */ import nc.impl.pubapp.pattern.data.bill.BillLazyQuery;
 /*     */ import nc.itf.bd.defdoc.IDefdoclistQryService;
 /*     */ import nc.itf.bd.userdefitem.IUserdefitemQryService;
@@ -21,7 +24,9 @@ package nc.impl.so.qs.sc.maschine.bill;
 /*     */ import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 /*     */ import nc.vo.pubapp.query2.sql.process.QuerySchemeProcessor;
 			import nc.itf.so.qs.sc.maschine.service.IMaschineQuery;
-			import nc.vo.so.qs.sc.AggMaschineVO;
+//import nc.vo.scmpub.page.PageQueryVO;
+import nc.vo.so.qs.sc.AggMaschineVO;
+import nc.vo.so.qs.sc.MaschineVO;
 /*     */ 
 /*     */ 
 /*     */ 
@@ -155,4 +160,48 @@ package nc.impl.so.qs.sc.maschine.bill;
 ///*     */     }
 ///* 154 */     return (DefdoclistVO[])defdoclistVOList.toArray(new DefdoclistVO[0]);
 ///*     */   }
-/*     */ }
+/*     */
+//@Override
+//	public Object[] queryMDVOByPks(String[] pks) throws BusinessException {
+//		// TODO 自动生成的方法存根
+//		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
+//		
+//		query.addChildOrder(MaschineVO.class, "rowno");
+//		
+//		
+//		return (AggMaschineVO[])query.queryPageBills(pks);
+//	}
+//	@Override
+//	public PageQueryVO queryM30App(IQueryScheme Scheme) throws BusinessException {
+//		// TODO 自动生成的方法存根
+//		SchemeAppendCondition condition = new SchemeAppendCondition(Scheme);
+//		SchemeFixCondition tool = new SchemeFixCondition(Scheme);
+//		
+//		condition.appendPermission();
+//		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
+//		
+//		PageQueryVO page = null;
+//		
+//		try{
+//			
+//			query.addHeadOrder("code");
+//			query.addChildOrder(MaschineVO.class, "rowno");
+//			
+//			page = query.query(Scheme);
+//			
+//		}catch(Exception ex){
+//			
+//		}
+//		return page;
+//	}
+//	@Override
+//	public AggMaschineVO[] queryM30App(String[] id)
+//			throws BusinessException {
+//		// TODO 自动生成的方法存根
+//		BillPageLazyQuery<AggMaschineVO> query=new BillPageLazyQuery(AggMaschineVO.class);
+//		
+//		query.addChildOrder(MaschineVO.class, "rowno");
+//		
+//		return query.queryPageBills(id);
+//	} 
+}

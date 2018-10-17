@@ -16,6 +16,8 @@
     <resource>
       <src name="resources"/>
     </resource>
-    <funnodes/>
+    <funnodes>
+      <funnode name="发货申请单" code="4006200301" funnode="so/ace/client/4006200301.fnf" service="so/ace/service/4006200301.smf"/>
+    </funnodes>
   </BusinessComponet>
 </Manifest>
