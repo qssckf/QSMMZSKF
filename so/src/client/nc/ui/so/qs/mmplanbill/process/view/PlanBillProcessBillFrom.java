@@ -6,6 +6,19 @@ import nc.ui.pubapp.uif2app.view.ShowUpableBillForm;
 public class PlanBillProcessBillFrom extends ShowUpableBillForm{
 	
 	private String[] headFields={"plandate"};
+	
+	
+
+	@Override
+	public void initUI() {
+		// TODO 自动生成的方法存根
+		
+		super.initUI();
+		
+		this.setComponentVisible(true);
+	}
+
+
 
 	@Override
 	protected void onEdit() {

@@ -12,6 +12,7 @@ import nc.jdbc.framework.util.BeanConvertor;
 import nc.jdbc.framework.util.StringConvertor;
 import nc.vo.hr.append.IAppendableVO;
 import nc.vo.pub.*;
+import nc.vo.pub.lang.UFDouble;
 import nc.vo.pubapp.pattern.model.meta.entity.vo.VOMetaFactory;
 
 /**
@@ -37,8 +38,8 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	private java.lang.String pk_customer;
 	private java.lang.String bomid;
 	private java.lang.String vbomversion;
-	private java.lang.String plannum;
-	private java.lang.String plannastnum;
+	private UFDouble plannum;
+	private UFDouble plannastnum;
 	private java.lang.String vbdef1;
 	private java.lang.String vbdef2;
 	private java.lang.String vbdef3;
@@ -96,6 +97,9 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	private nc.vo.pub.lang.UFDouble elongation;
 	private nc.vo.pub.lang.UFBoolean spacer;
 	private nc.vo.pub.lang.UFBoolean sftemp;
+	private java.lang.String rate;
+
+
 
 
 	private java.lang.Integer dr = 0;
@@ -172,6 +176,7 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	public static final String ELONGATION = "elongation";
 	public static final String SPACER = "spacer";
 	public static final String SFTEMP="sftemp";
+	public static final String RATE="rate";
 			
 	/**
 	 * 属性pk_planbill的Getter方法.属性名：主键
@@ -370,7 +375,7 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getPlannum () {
+	public UFDouble getPlannum () {
 		return plannum;
 	}   
 	/**
@@ -378,7 +383,7 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	 * 创建日期:
 	 * @param newPlannum java.lang.String
 	 */
-	public void setPlannum (java.lang.String newPlannum ) {
+	public void setPlannum (UFDouble newPlannum ) {
 	 	this.plannum = newPlannum;
 	} 	  
 	/**
@@ -386,7 +391,7 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	 * 创建日期:
 	 * @return java.lang.String
 	 */
-	public java.lang.String getPlannastnum () {
+	public UFDouble getPlannastnum () {
 		return plannastnum;
 	}   
 	/**
@@ -394,7 +399,7 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	 * 创建日期:
 	 * @param newPlannastnum java.lang.String
 	 */
-	public void setPlannastnum (java.lang.String newPlannastnum ) {
+	public void setPlannastnum (UFDouble newPlannastnum ) {
 	 	this.plannastnum = newPlannastnum;
 	} 	  
 	/**
@@ -1332,6 +1337,13 @@ public class MmPlanBillVO extends SuperVO implements IAppendableVO {
 	}
 	public void setSftemp(nc.vo.pub.lang.UFBoolean sftemp) {
 		this.sftemp = sftemp;
+	}
+	
+	public java.lang.String getRate() {
+		return rate;
+	}
+	public void setRate(java.lang.String rate) {
+		this.rate = rate;
 	}
  
 	/**

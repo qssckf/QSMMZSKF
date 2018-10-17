@@ -71,6 +71,16 @@ import nc.vo.wfengine.pub.WFTask;
    }
    
  
+   public static IBillType getBillType(String category, String code)
+   {
+	   IBillType taskType = QSMaBillTypeFactory.getInstance().get(category, code);
+     
+	   if (taskType == null) {
+		   throw new IllegalArgumentException("invalid category or code: " + category + ", " + code);
+	   }
+     
+	   return taskType;
+   }
  
  
    public static HashMap<String, Object> createHashMap()
@@ -228,6 +238,27 @@ import nc.vo.wfengine.pub.WFTask;
    }
    
  
+   public static String queryBillTemplateId(String billtype,String userid) throws BusinessException{
+	     
+	   String pk_group = InvocationInfoProxy.getInstance().getGroupId();
+		     
+	   BilltypeVO btvo = PfDataCache.getBillTypeInfo(billtype);
+		     
+	   String funnode = btvo.getNodecode();
+		     
+	   TemplateParaVO para = new TemplateParaVO();
+		     
+	   para.setFunNode(funnode);
+	   para.setNodeKey("MobileApp");
+	   para.setOperator(userid);
+	   para.setPk_Corp(pk_group);
+	   para.setTemplateType(0);
+		     
+	   IPFTemplate srv = (IPFTemplate)NCLocator.getInstance().lookup(IPFTemplate.class);
+	   String templateid = srv.getTemplateId(para);
+		     
+	   return templateid;
+   }
  
  
  
